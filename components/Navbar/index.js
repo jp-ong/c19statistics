@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Navbar.module.scss";
+import styles from "shared/styles/modules/Navbar.module.scss";
 import Link from "next/link";
 
 const Navbar = () => {
