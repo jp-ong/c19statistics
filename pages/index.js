@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Layout from "components/Layout";
+import GlobalData from "components/GlobalData";
 
 export default function Home() {
   return (
@@ -7,7 +8,9 @@ export default function Home() {
       <Head>
         <title>COVID-19 | Global</title>
       </Head>
-      <Layout></Layout>
+      <Layout>
+        <GlobalData />
+      </Layout>
     </>
   );
 }

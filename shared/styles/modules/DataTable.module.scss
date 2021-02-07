@@ -1,0 +1,89 @@
+@import "shared/styles/config";
+
+table.table {
+  width: 100%;
+
+  background-color: $darkblue;
+  color: $white;
+  font-size: 1rem;
+  border-spacing: 0;
+
+  box-shadow: 0 0 2rem -1rem black;
+
+  & > thead {
+    background-color: $lightblue;
+
+    & > tr {
+      & > th {
+        & > div {
+          width: 100%;
+          height: 2em;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          border: solid 1px $darkblue;
+          cursor: pointer;
+          transition: 125ms;
+
+          &:hover,
+          &.active {
+            background-color: $darkblue;
+            border: solid 1px $lightblue;
+          }
+        }
+      }
+    }
+  }
+
+  & > tbody {
+    & > tr {
+      border-bottom: dashed 1px $lightblue;
+      transition: background-color 125ms;
+
+      &:hover {
+        background-color: $lightblue;
+        * {
+          color: $white !important;
+        }
+      }
+
+      & > td {
+        & > div {
+          width: 100%;
+          height: 3.5em;
+          padding: 0.75em 1vw 0.25em;
+
+          display: flex;
+          justify-content: center;
+          flex-flow: column nowrap;
+          flex: 1 1 100%;
+          font-family: $sans;
+          font-weight: normal;
+
+          &.text {
+            align-items: flex-start;
+          }
+          &.index {
+            align-items: center;
+            font-family: $mono;
+            color: $lightblue;
+          }
+          &.number {
+            align-items: flex-end;
+            font-family: $mono;
+          }
+          &.bold {
+            font-weight: bold;
+          }
+
+          & > div.sub {
+            color: $lightblue;
+            transition: color 125ms;
+          }
+        }
+      }
+    }
+  }
+}
