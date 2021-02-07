@@ -14,5 +14,10 @@
     "react-dom": "17.0.1",
     "sass": "^1.32.6",
     "swr": "^0.4.1"
-  }
+  },
+  "description": "COVID19 Statistics WebApp using NextJS",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "John Paul Ong",
+  "license": "ISC"
 }
