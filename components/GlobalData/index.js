@@ -1,16 +1,16 @@
 import DataTable from "widgets/DataTable";
-import useSWR from "swr";
+// import useSWR from "swr";
 
-function fetchData() {
-  const url = "/api/latest";
-  const { data, error } = useSWR(url);
+// function fetchData() {
+//   const url = "/api/latest";
+//   const { data, error } = useSWR(url);
 
-  return {
-    data,
-    isLoading: !data & !error,
-    isError: error,
-  };
-}
+//   return {
+//     data,
+//     isLoading: !data & !error,
+//     isError: error,
+//   };
+// }
 
 function formatData(data) {
   return {
@@ -65,10 +65,10 @@ function formatData(data) {
   };
 }
 
-const GlobalData = () => {
-  const { data, isLoading, isError } = fetchData();
-  if (isLoading) return <>Loading</>;
-  if (isError) return <>Error</>;
+const GlobalData = ({ data }) => {
+  // const { data, isLoading, isError } = fetchData();
+  // if (isLoading) return <>Loading</>;
+  // if (isError) return <>Error</>;
 
   const tableData = formatData(data);
   return <DataTable table_data={tableData} />;
