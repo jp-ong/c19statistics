@@ -76,10 +76,10 @@ function formatData(data) {
   };
 }
 
-const CountryData = ({ country, fixed }) => {
-  const { data, isLoading, isError } = fetchData(country);
-  if (isLoading) return <>Loading</>;
-  if (isError) return <>Error</>;
+const CountryData = ({ data, fixed }) => {
+  // const { data, isLoading, isError } = fetchData(country);
+  // if (isLoading) return <>Loading</>;
+  // if (isError) return <>Error</>;
 
   const tableData = formatData(data);
   return <DataTable table_data={tableData} fixed />;
