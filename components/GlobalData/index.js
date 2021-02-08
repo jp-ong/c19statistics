@@ -1,5 +1,4 @@
 import DataTable from "widgets/DataTable";
-// import Stats from "data.json";
 import useSWR from "swr";
 
 function fetchData() {
@@ -66,10 +65,10 @@ function formatData(data) {
   };
 }
 
-const GlobalData = ({ data }) => {
-  // const { data, isLoading, isError } = fetchData();
-  // if (isLoading) return <>Loading</>;
-  // if (isError) return <>Error</>;
+const GlobalData = () => {
+  const { data, isLoading, isError } = fetchData();
+  if (isLoading) return <>Loading</>;
+  if (isError) return <>Error</>;
 
   const tableData = formatData(data);
   return <DataTable table_data={tableData} />;
