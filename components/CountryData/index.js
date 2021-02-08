@@ -26,7 +26,7 @@ function formatData(data) {
     ],
     body: data.stats.map((stat, index) => {
       return {
-        Link: `/${stat.country}`,
+        Link: ``,
         Data: {
           Index: {
             value: index + 1,

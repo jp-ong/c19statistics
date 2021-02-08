@@ -23,8 +23,9 @@ function formatData(data) {
       "Recovered",
     ],
     body: data.stats.map((stat, index) => {
+      const country = stat.country === "Taiwan*" ? "Taiwan" : stat.country;
       return {
-        Link: `/${stat.country}`,
+        Link: `/${country}`,
         Data: {
           Index: {
             value: index + 1,
@@ -32,7 +33,7 @@ function formatData(data) {
             font: "normal",
           },
           Country: {
-            value: stat.country,
+            value: country,
             style: "text",
             font: "bold",
           },

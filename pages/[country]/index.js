@@ -18,7 +18,9 @@ export default function CountryPage({ data }) {
 }
 
 export async function getStaticProps(context) {
-  const url = `https://api-covid-stats.herokuapp.com/api/stats/country/${context.params.country}`;
+  const country =
+    context.params.country === "Taiwan" ? "Taiwan*" : context.params.country;
+  const url = `https://api-covid-stats.herokuapp.com/api/stats/country/${country}`;
   const res = await fetch(url);
   const data = await res.json();
 
@@ -36,7 +38,7 @@ export async function getStaticPaths() {
   const paths = data.stats.map((stat) => {
     return {
       params: {
-        country: stat.country,
+        country: stat.country === "Taiwan*" ? "Taiwan" : stat.country,
       },
     };
   });
