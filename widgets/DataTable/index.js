@@ -37,13 +37,17 @@ const DataTable = ({ table_data }) => {
         </tr>
       </thead>
       <tbody>
-        {sortedBody.map((row, i) => (
-          <tr key={i}>
-            {Object.values(row).map((r, i) => (
+        {sortedBody.map((row, index) => (
+          <tr key={index}>
+            {Object.entries(row).map((r, i) => (
               <td key={i}>
-                <div className={`${styles[r.style]} ${styles[r.font]}`}>
-                  <div>{r.value?.toLocaleString()}</div>
-                  <div className={styles.sub}>{r.sub?.toLocaleString()}</div>
+                <div className={`${styles[r[1].style]} ${styles[r[1].font]}`}>
+                  <div>
+                    {r[0] === "Index"
+                      ? index + 1
+                      : r[1].value?.toLocaleString()}
+                  </div>
+                  <div className={styles.sub}>{r[1].sub?.toLocaleString()}</div>
                 </div>
               </td>
             ))}
