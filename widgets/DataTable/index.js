@@ -24,8 +24,8 @@ const DataTable = ({ table_data }) => {
     <table className={styles.table}>
       <thead>
         <tr>
-          {headers.map((header, i) => (
-            <th key={i}>
+          {headers.map((header, index) => (
+            <th key={index}>
               <div
                 className={sortBy === header ? styles.active : ""}
                 onClick={() => sortClicked(header)}
