@@ -50,6 +50,10 @@ table.table {
         }
       }
 
+      &.link {
+        cursor: pointer;
+      }
+
       & > td {
         & > div {
           width: 100%;

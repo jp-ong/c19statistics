@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import styles from "shared/styles/modules/DataTable.module.scss";
+import { useRouter } from "next/router";
 
 const DataTable = ({ table_data }) => {
   const { headers, body } = table_data;
@@ -11,11 +12,11 @@ const DataTable = ({ table_data }) => {
     setSortBy(header);
     setSortedBody(
       body.sort((a, b) => {
-        return typeof a[header].value === "number"
+        return typeof a.Data[header].value === "number"
           ? header === "Index"
-            ? a[header].value - b[header].value
-            : b[header].value - a[header].value
-          : a[header].value.localeCompare(b[header].value);
+            ? a.Data[header].value - b.Data[header].value
+            : b.Data[header].value - a.Data[header].value
+          : a.Data[header].value.localeCompare(b.Data[header].value);
       })
     );
   };
@@ -58,9 +59,19 @@ const TableBody = ({ sortedBody }) => {
 };
 
 const TableRow = ({ row, rowIndex }) => {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.prefetch(row.Link);
+  }, []);
+
   return (
-    <tr key={rowIndex}>
-      {Object.entries(row).map((col, index) => (
+    <tr
+      key={rowIndex}
+      onClick={() => router.push(row.Link)}
+      className={row.Link ? styles.link : ""}
+    >
+      {Object.entries(row.Data).map((col, index) => (
         <TableCol key={index} rowIndex={rowIndex} col={col} colIndex={index} />
       ))}
     </tr>
@@ -70,7 +81,9 @@ const TableRow = ({ row, rowIndex }) => {
 const TableCol = ({ col, rowIndex, colIndex }) => {
   return (
     <td>
-      <div className={`${styles[col[1].style]} ${styles[col[1].font]}`}>
+      <div
+        className={`${styles[col[1].style || ""]} ${styles[col[1].font || ""]}`}
+      >
         <div>
           {col[0] === "Index" ? rowIndex + 1 : col[1].value?.toLocaleString()}
         </div>

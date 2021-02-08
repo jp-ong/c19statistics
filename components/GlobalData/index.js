@@ -25,39 +25,41 @@ function formatData(data) {
     ],
     body: data.stats.map((stat, index) => {
       return {
-        Link: { url: `/country/${stat.country}` },
-        Index: {
-          value: index + 1,
-          style: "index",
-          font: "normal",
-        },
-        Country: {
-          value: stat.country,
-          style: "text",
-          font: "bold",
-        },
-        Population: {
-          value: stat.population,
-          style: "number",
-          font: "normal",
-        },
-        Confirmed: {
-          value: stat.confirmed,
-          sub: stat.confirmed_daily,
-          style: "number",
-          font: "normal",
-        },
-        Deaths: {
-          value: stat.deaths,
-          sub: stat.deaths_daily,
-          style: "number",
-          font: "normal",
-        },
-        Recovered: {
-          value: stat.recovered,
-          sub: stat.recovered_daily,
-          style: "number",
-          font: "normal",
+        Link: `/country/${stat.country}`,
+        Data: {
+          Index: {
+            value: index + 1,
+            style: "index",
+            font: "normal",
+          },
+          Country: {
+            value: stat.country,
+            style: "text",
+            font: "bold",
+          },
+          Population: {
+            value: stat.population,
+            style: "number",
+            font: "normal",
+          },
+          Confirmed: {
+            value: stat.confirmed,
+            sub: stat.confirmed_daily,
+            style: "number",
+            font: "normal",
+          },
+          Deaths: {
+            value: stat.deaths,
+            sub: stat.deaths_daily,
+            style: "number",
+            font: "normal",
+          },
+          Recovered: {
+            value: stat.recovered,
+            sub: stat.recovered_daily,
+            style: "number",
+            font: "normal",
+          },
         },
       };
     }),
