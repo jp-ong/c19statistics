@@ -22,40 +22,61 @@ const DataTable = ({ table_data }) => {
 
   return (
     <table className={styles.table}>
-      <thead>
-        <tr>
-          {headers.map((header, index) => (
-            <th key={index}>
-              <div
-                className={sortBy === header ? styles.active : ""}
-                onClick={() => sortClicked(header)}
-              >
-                {header}
-              </div>
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {sortedBody.map((row, index) => (
-          <tr key={index}>
-            {Object.entries(row).map((r, i) => (
-              <td key={i}>
-                <div className={`${styles[r[1].style]} ${styles[r[1].font]}`}>
-                  <div>
-                    {r[0] === "Index"
-                      ? index + 1
-                      : r[1].value?.toLocaleString()}
-                  </div>
-                  <div className={styles.sub}>{r[1].sub?.toLocaleString()}</div>
-                </div>
-              </td>
-            ))}
-          </tr>
-        ))}
-      </tbody>
+      <TableHead headers={headers} sortBy={sortBy} sortClicked={sortClicked} />
+      <TableBody sortedBody={sortedBody} />
     </table>
   );
 };
 
+const TableHead = ({ headers, sortBy, sortClicked }) => {
+  return (
+    <thead>
+      <tr>
+        {headers.map((header, index) => (
+          <th key={index}>
+            <div
+              className={sortBy === header ? styles.active : ""}
+              onClick={() => sortClicked(header)}
+            >
+              {header}
+            </div>
+          </th>
+        ))}
+      </tr>
+    </thead>
+  );
+};
+
+const TableBody = ({ sortedBody }) => {
+  return (
+    <tbody>
+      {sortedBody.map((row, index) => (
+        <TableRow row={row} rowIndex={index} key={index} />
+      ))}
+    </tbody>
+  );
+};
+
+const TableRow = ({ row, rowIndex }) => {
+  return (
+    <tr key={rowIndex}>
+      {Object.entries(row).map((col, index) => (
+        <TableCol key={index} rowIndex={rowIndex} col={col} colIndex={index} />
+      ))}
+    </tr>
+  );
+};
+
+const TableCol = ({ col, rowIndex, colIndex }) => {
+  return (
+    <td>
+      <div className={`${styles[col[1].style]} ${styles[col[1].font]}`}>
+        <div>
+          {col[0] === "Index" ? rowIndex + 1 : col[1].value?.toLocaleString()}
+        </div>
+        <div className={styles.sub}>{col[1].sub?.toLocaleString()}</div>
+      </div>
+    </td>
+  );
+};
 export default DataTable;
