@@ -82,7 +82,7 @@ const CountryData = ({ data, fixed }) => {
   // if (isError) return <>Error</>;
 
   const tableData = formatData(data);
-  return <DataTable table_data={tableData} fixed />;
+  return <DataTable table_data={tableData} fixed={fixed} />;
 };
 
 export default CountryData;

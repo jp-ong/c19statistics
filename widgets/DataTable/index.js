@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "shared/styles/modules/DataTable.module.scss";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const DataTable = ({ table_data, fixed }) => {
   const { headers, body } = table_data;
@@ -59,26 +60,23 @@ const TableBody = ({ sortedBody }) => {
 };
 
 const TableRow = ({ row, rowIndex }) => {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.prefetch(row.Link);
-  }, []);
-
   return (
-    <tr
-      key={rowIndex}
-      onClick={() => router.push(row.Link)}
-      className={row.Link ? styles.link : ""}
-    >
-      {Object.entries(row.Data).map((col, index) => (
-        <TableCol key={index} rowIndex={rowIndex} col={col} colIndex={index} />
-      ))}
-    </tr>
+    <Link href={row.Link || ""}>
+      <tr key={rowIndex} className={row.Link ? styles.link : ""}>
+        {Object.entries(row.Data).map((col, index) => (
+          <TableCol
+            key={index}
+            rowIndex={rowIndex}
+            col={col}
+            colIndex={index}
+          />
+        ))}
+      </tr>
+    </Link>
   );
 };
 
-const TableCol = ({ col, rowIndex, colIndex }) => {
+const TableCol = ({ col, rowIndex, colIndex, link }) => {
   return (
     <td>
       <div
