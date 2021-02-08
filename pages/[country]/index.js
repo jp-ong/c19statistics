@@ -20,7 +20,9 @@ export default function CountryPage({ data }) {
 export async function getStaticProps(context) {
   const country =
     context.params.country === "Taiwan" ? "Taiwan*" : context.params.country;
-  const url = `https://api-covid-stats.herokuapp.com/api/stats/country/${country}`;
+  const url = `https://api-covid-stats.herokuapp.com/api/stats/country/${encodeURIComponent(
+    country
+  )}`;
   const res = await fetch(url);
   const data = await res.json();
 
