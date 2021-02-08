@@ -26,7 +26,6 @@ function formatData(data) {
     ],
     body: data.stats.map((stat, index) => {
       return {
-        Link: ``,
         Data: {
           Index: {
             value: index + 1,

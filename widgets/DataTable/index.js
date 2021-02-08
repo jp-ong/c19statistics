@@ -60,8 +60,8 @@ const TableBody = ({ sortedBody }) => {
 };
 
 const TableRow = ({ row, rowIndex }) => {
-  return (
-    <Link href={row.Link || ""}>
+  return row.Link ? (
+    <Link href={row.Link}>
       <tr key={rowIndex} className={row.Link ? styles.link : ""}>
         {Object.entries(row.Data).map((col, index) => (
           <TableCol
@@ -73,6 +73,12 @@ const TableRow = ({ row, rowIndex }) => {
         ))}
       </tr>
     </Link>
+  ) : (
+    <tr key={rowIndex} className={row.Link ? styles.link : ""}>
+      {Object.entries(row.Data).map((col, index) => (
+        <TableCol key={index} rowIndex={rowIndex} col={col} colIndex={index} />
+      ))}
+    </tr>
   );
 };
 
