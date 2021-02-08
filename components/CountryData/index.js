@@ -1,18 +1,16 @@
 import DataTable from "widgets/DataTable";
-// import Stats from "data.json";
-import useSWR from "swr";
-import useRouter from "next/router";
+// import useSWR from "swr";
 
-function fetchData(country) {
-  const url = "/api/country/" + country;
-  const { data, error } = useSWR(url);
+// function fetchData(country) {
+//   const url = "/api/country/" + country;
+//   const { data, error } = useSWR(url);
 
-  return {
-    data,
-    isLoading: !data & !error,
-    isError: error,
-  };
-}
+//   return {
+//     data,
+//     isLoading: !data & !error,
+//     isError: error,
+//   };
+// }
 
 function formatData(data) {
   return {

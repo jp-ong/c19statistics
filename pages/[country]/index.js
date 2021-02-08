@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "components/Layout";
 import CountryData from "components/CountryData";
-import axios from "axios";
 
 export default function CountryPage({ data }) {
   return (
@@ -16,10 +15,11 @@ export default function CountryPage({ data }) {
   );
 }
 
-export async function getStaticProps({ params }) {
-  const url = process.env.API_SERVER + "/api/stats/country/" + params.country;
-  const response = await axios(url).then((res) => res);
-  const data = await response.data;
+export async function getStaticProps(context) {
+  const url =
+    process.env.API_SERVER + "/api/stats/country/" + context.params.country;
+  const res = await fetch(url);
+  const data = await res.json();
 
   return {
     props: { data },
@@ -28,12 +28,12 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const url = process.env.API_SERVER + "/api/stats/latest";
+  const url = "https://api-covid-stats.herokuapp.com/api/stats/latest";
   const res = await fetch(url);
   const data = await res.json();
 
   const paths = data.stats.map((stat) => ({
-    params: { country: stat.country },
+    params: { country: stat.country.toString() },
   }));
 
   return { paths, fallback: true };
