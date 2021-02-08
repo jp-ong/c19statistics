@@ -25,7 +25,7 @@ function formatData(data) {
     ],
     body: data.stats.map((stat, index) => {
       return {
-        Link: `/country/${stat.country}`,
+        Link: `/${stat.country}`,
         Data: {
           Index: {
             value: index + 1,
@@ -66,10 +66,10 @@ function formatData(data) {
   };
 }
 
-const GlobalData = () => {
-  const { data, isLoading, isError } = fetchData();
-  if (isLoading) return <>Loading</>;
-  if (isError) return <>Error</>;
+const GlobalData = ({ data }) => {
+  // const { data, isLoading, isError } = fetchData();
+  // if (isLoading) return <>Loading</>;
+  // if (isError) return <>Error</>;
 
   const tableData = formatData(data);
   return <DataTable table_data={tableData} />;

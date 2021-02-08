@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styles from "shared/styles/modules/DataTable.module.scss";
 import { useRouter } from "next/router";
 
-const DataTable = ({ table_data }) => {
+const DataTable = ({ table_data, fixed }) => {
   const { headers, body } = table_data;
 
   const [sortBy, setSortBy] = useState("Index");
@@ -22,7 +22,7 @@ const DataTable = ({ table_data }) => {
   };
 
   return (
-    <table className={styles.table}>
+    <table className={`${styles.table} ${fixed ? styles.fixed : ""}`}>
       <TableHead headers={headers} sortBy={sortBy} sortClicked={sortClicked} />
       <TableBody sortedBody={sortedBody} />
     </table>

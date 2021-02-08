@@ -10,6 +10,10 @@ table.table {
 
   box-shadow: 0 0 2rem -1rem black;
 
+  &.fixed {
+    table-layout: fixed;
+  }
+
   & > thead {
     background-color: $darkblue;
 
@@ -81,6 +85,10 @@ table.table {
           }
           &.bold {
             font-weight: bold;
+          }
+          &.center {
+            align-items: center;
+            font-family: $mono;
           }
 
           & > div.sub {
