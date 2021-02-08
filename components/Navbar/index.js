@@ -1,8 +1,18 @@
 import React from "react";
 import styles from "shared/styles/modules/Navbar.module.scss";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [time, setTime] = useState(new Date());
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
+  });
   return (
     <nav className={styles.nav}>
       <div className={styles.navleft}>
@@ -39,7 +49,7 @@ const Navbar = () => {
           </a>
         </div>
         <div>
-          <span>{new Date().toLocaleString()}</span>
+          <span>{time.toLocaleString()}</span>
         </div>
       </div>
     </nav>
