@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Layout from "components/Layout";
 import GlobalData from "components/GlobalData";
+import axios from "axios";
 
 export default function Home({ data }) {
   return (
@@ -17,8 +18,8 @@ export default function Home({ data }) {
 
 export async function getStaticProps() {
   const url = process.env.API_SERVER + "/api/stats/latest";
-  const res = await fetch(url);
-  const data = await res.json();
+  const res = await axios(url).then((res) => res);
+  const data = await res.data;
 
   return {
     props: { data },
