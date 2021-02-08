@@ -11,7 +11,7 @@ table.table {
   box-shadow: 0 0 2rem -1rem black;
 
   & > thead {
-    background-color: $blue;
+    background-color: $darkblue;
 
     & > tr {
       & > th {
@@ -23,15 +23,16 @@ table.table {
           align-items: center;
           justify-content: center;
 
-          border-top: solid 1px $darkblue;
-          border-bottom: solid 1px $darkblue;
+          border-top: solid 1px;
+          border-bottom: solid 1px;
+          border-color: $blue;
           cursor: pointer;
           transition: 125ms;
 
           &:hover,
           &.active {
-            background-color: $darkblue;
-            border-color: $blue;
+            background-color: $blue;
+            border-color: $darkblue;
           }
         }
       }
