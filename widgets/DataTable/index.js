@@ -91,7 +91,9 @@ const TableCol = ({ col, rowIndex, colIndex, link }) => {
         <div>
           {col[0] === "Index" ? rowIndex + 1 : col[1].value?.toLocaleString()}
         </div>
-        <div className={styles.sub}>{col[1].sub?.toLocaleString()}</div>
+        {col[1].sub && (
+          <div className={styles.sub}>{col[1].sub.toLocaleString()}</div>
+        )}
       </div>
     </td>
   );
