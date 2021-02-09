@@ -4,6 +4,7 @@ table.table {
   width: 100%;
 
   background-color: $darkblue;
+  border: solid 1px $black;
   color: $white;
   font-size: 1rem;
   border-collapse: collapse;
@@ -15,8 +16,6 @@ table.table {
   }
 
   & > thead {
-    background-color: $darkblue;
-
     & > tr {
       & > th {
         & > div {
@@ -30,6 +29,8 @@ table.table {
           // border-top: solid 1px;
           border-bottom: solid 2px;
           border-color: $blue;
+          // border-radius: 1rem;
+
           cursor: pointer;
           transition: 125ms;
 
