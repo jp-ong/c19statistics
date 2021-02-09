@@ -21,14 +21,14 @@ table.table {
       & > th {
         & > div {
           width: 100%;
-          height: 2em;
+          height: 3em;
 
           display: flex;
           align-items: center;
           justify-content: center;
 
-          border-top: solid 1px;
-          border-bottom: solid 1px;
+          // border-top: solid 1px;
+          border-bottom: solid 2px;
           border-color: $blue;
           cursor: pointer;
           transition: 125ms;
