@@ -1,7 +1,7 @@
 import DataTable from "widgets/DataTable";
 import Link from "next/link";
 
-const CountryData = ({ data, fixed }) => {
+const CountryData = ({ data, fixed, info }) => {
   return (
     <>
       <div>
@@ -14,7 +14,7 @@ const CountryData = ({ data, fixed }) => {
           </a>
         </Link>
       </div>
-      <DataTable table_data={data} fixed={fixed} date={data.date} />
+      <DataTable table_data={data} fixed={fixed} date={data.date} info={info} />
     </>
   );
 };

@@ -3,7 +3,7 @@ import styles from "styles/modules/DataTable.module.scss";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const DataTable = ({ table_data, fixed, date }) => {
+const DataTable = ({ table_data, fixed, date, info }) => {
   const router = useRouter();
   const { headers, body } = table_data;
 
@@ -51,6 +51,10 @@ const DataTable = ({ table_data, fixed, date }) => {
   return (
     <>
       <div className={styles.tableInfo}>
+        <span>
+          <small>Viewing: </small>
+          <b>{info}</b>
+        </span>
         <span>
           <small>Index size: </small>
           <b>{body.length}</b>

@@ -19,7 +19,7 @@ export default function CountryPage({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Layout summary>
-        <CountryData fixed data={data} />
+        <CountryData fixed data={data} info={country} />
       </Layout>
     </>
   );
