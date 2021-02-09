@@ -1,16 +1,7 @@
 import "styles/globals.scss";
 import { useEffect } from "react";
-// import axios from "axios";
-// import { SWRConfig } from "swr";
 
 function MyApp({ Component, pageProps }) {
-  //   const fetcher = (...args) => axios(...args).then((res) => res.data);
-
-  //   axios.defaults.baseURL =
-  //     process.env.NODE_ENV === "production"
-  //       ? process.env.HOST_DOMAIN
-  //       : "http://localhost:3000";
-
   useEffect(() => {
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", function () {
@@ -29,13 +20,7 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
 
-  return (
-    // <SWRConfig
-    //   value={{ fetcher, revalidateOnFocus: false, dedupingInterval: 600000 }}
-    // >
-    <Component {...pageProps} />
-    // </SWRConfig>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
