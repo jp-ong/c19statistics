@@ -1,16 +1,22 @@
 import Head from "next/head";
 import Layout from "components/Layout";
 import CountryData from "components/CountryData";
-// import { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
 export default function CountryPage({ data }) {
-  // const router = useRouter();
+  const router = useRouter();
+  const { country } = router.query;
   return (
     <>
       <Head>
-        <title>COVID-19 | Global</title>
+        <title>{country} | COVID-19 Statistical Summary</title>
+        <meta
+          name="keywords"
+          content={`covid-19, ${country}, summary, statistics, confirmed, deaths, recovered, population`}
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Layout>
+      <Layout summary>
         <CountryData fixed data={data} />
       </Layout>
     </>

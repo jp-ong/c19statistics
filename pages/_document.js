@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <script
             async
@@ -25,8 +25,15 @@ class MyDocument extends Document {
         `,
             }}
           />
+          <meta charSet="UTF-8" />
+          <meta name="robots" content="index, follow" />
+          <meta
+            name="description"
+            content="Keep up-to-date with COVID-19 cases with our global statistics and country statistical summary."
+          />
           <link rel="icon" href="/favicon.ico" />
           <link rel="stylesheet" href="https://use.typekit.net/czh2mrw.css" />
+          <link rel="canonical" href="http://next-covid-app.vercel.app/" />
         </Head>
         <body>
           <Main />

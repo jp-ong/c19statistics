@@ -6,7 +6,12 @@ export default function Home({ data }) {
   return (
     <>
       <Head>
-        <title>COVID-19 | Global</title>
+        <title>Global Statistics for COVID-19 Cases</title>
+        <meta
+          name="keywords"
+          content="covid-19, global, statistics, confirmed, deaths, recovered, population"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Layout>
         <GlobalData data={data} />
