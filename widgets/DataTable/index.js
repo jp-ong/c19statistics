@@ -102,7 +102,7 @@ const TableCol = ({ col, rowIndex, colIndex, link }) => {
   return (
     <td>
       <div
-        className={`${styles[col[1].style || ""]} ${styles[col[1].font || ""]}`}
+        className={`${styles[col[1].style] || ""} ${styles[col[1].font] || ""}`}
       >
         <div>
           {col[0] === "Index" ? rowIndex + 1 : col[1].value?.toLocaleString()}
