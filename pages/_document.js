@@ -32,7 +32,10 @@ class MyDocument extends Document {
             content="Keep up-to-date with COVID-19 cases with our global statistics and country statistical summary."
           />
           <link rel="icon" href="/favicon.ico" />
-          <link rel="stylesheet" href="https://use.typekit.net/czh2mrw.css" />
+          <link
+            rel="stylesheet preconnect"
+            href="https://use.typekit.net/czh2mrw.css"
+          />
           <link rel="canonical" href="http://next-covid-app.vercel.app/" />
         </Head>
         <body>
