@@ -9,6 +9,8 @@ const DataTable = ({ table_data, fixed, date }) => {
 
   const [sortBy, setSortBy] = useState("Index");
   const [sortedBody, setSortedBody] = useState(body);
+  const [sliceIndex, setSliceIndex] = useState(0);
+  const [size, setSize] = useState(10);
 
   const sortClicked = (header) => {
     setSortBy(header);
@@ -23,26 +25,65 @@ const DataTable = ({ table_data, fixed, date }) => {
     );
   };
 
+  const isMax = (n) => {
+    return body.length <= sliceIndex + n;
+  };
+
+  const isMin = (n) => {
+    return 0 > sliceIndex + n;
+  };
+
+  const sliceClicked = (n) => {
+    const max = isMax(n);
+    const min = isMin(n);
+
+    if (!max && !min) setSliceIndex(sliceIndex + n);
+  };
+  const changeSize = () => {
+    if (size === 10) {
+      setSliceIndex(0);
+      setSize(body.length);
+    } else {
+      setSize(10);
+    }
+  };
+
   return (
-    <div className={styles.tableContainer}>
+    <>
       <div className={styles.tableInfo}>
+        <span>
+          <small>Index size: </small>
+          <b>{body.length}</b>
+        </span>
         <span>
           <small>Latest data available at </small>
           <b>{new Date(date).toLocaleDateString("en-CA")}</b>
         </span>
-        <button className={styles.refresh} onClick={() => router.reload()}>
+        <button className={styles.button} onClick={() => router.reload()}>
           Refresh Data
         </button>
       </div>
-      <table className={`${styles.table} ${fixed ? styles.fixed : ""}`}>
-        <TableHead
-          headers={headers}
-          sortBy={sortBy}
-          sortClicked={sortClicked}
-        />
-        <TableBody sortedBody={sortedBody} />
-      </table>
-    </div>
+      <div className={styles.tableContainer}>
+        <table className={`${styles.table} ${fixed ? styles.fixed : ""}`}>
+          <TableHead
+            headers={headers}
+            sortBy={sortBy}
+            sortClicked={sortClicked}
+          />
+          <TableBody
+            sortedBody={sortedBody.slice(sliceIndex, sliceIndex + size)}
+            indexSize={sliceIndex}
+          />
+        </table>
+      </div>
+      <TableControls
+        changeSize={changeSize}
+        sliceClicked={sliceClicked}
+        size={size}
+        isMax={isMax}
+        isMin={isMin}
+      />
+    </>
   );
 };
 
@@ -65,11 +106,15 @@ const TableHead = ({ headers, sortBy, sortClicked }) => {
   );
 };
 
-const TableBody = ({ sortedBody }) => {
+const TableBody = ({ sortedBody, indexSize }) => {
   return (
     <tbody>
       {sortedBody.map((row, index) => (
-        <TableRow row={row} rowIndex={index} key={index} />
+        <TableRow
+          row={row}
+          rowIndex={parseInt(index + indexSize)}
+          key={index}
+        />
       ))}
     </tbody>
   );
@@ -114,4 +159,40 @@ const TableCol = ({ col, rowIndex, colIndex, link }) => {
     </td>
   );
 };
+
+const TableControls = ({ changeSize, sliceClicked, size, isMin, isMax }) => {
+  return (
+    <div className={styles.tableControls}>
+      <button
+        className={styles.button}
+        disabled={size === 10}
+        onClick={() => changeSize()}
+      >
+        Show 10
+      </button>
+      <button
+        className={styles.button}
+        disabled={size !== 10}
+        onClick={() => changeSize()}
+      >
+        Show All
+      </button>
+      <button
+        className={styles.button}
+        disabled={isMin(-size) || size !== 10}
+        onClick={() => sliceClicked(-size)}
+      >
+        Prev
+      </button>
+      <button
+        className={styles.button}
+        disabled={isMax(size) || size !== 10}
+        onClick={() => sliceClicked(size)}
+      >
+        Next
+      </button>
+    </div>
+  );
+};
+
 export default DataTable;

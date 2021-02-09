@@ -1,6 +1,6 @@
 import DataTable from "widgets/DataTable";
 
-const GlobalData = ({ data }) => {
+const GlobalData = ({ data, fixed }) => {
   return (
     <>
       <div>
@@ -8,7 +8,7 @@ const GlobalData = ({ data }) => {
           Click on a <b>country</b> to see its summary.
         </span>
       </div>
-      <DataTable table_data={data} date={data.date} />
+      <DataTable table_data={data} date={data.date} fixed={fixed} />
     </>
   );
 };

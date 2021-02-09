@@ -1,60 +1,79 @@
 @import "styles/config";
 
-div.tableContainer {
-  margin: 0.5rem 0;
-  position: relative;
-  font-size: 1rem;
+button.button {
+  width: 10em;
+  height: 2em;
+  padding-top: 0.125em;
 
-  div.tableInfo {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: -2.25em;
+  background-color: $gray;
+  border: solid 1px $blue;
+  border-radius: 0.25em;
 
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    flex-flow: row nowrap;
+  color: $white;
+  font-size: 0.875em;
 
-    span {
-      margin: 0 1vw;
-      word-spacing: 0.125ch;
+  cursor: pointer;
 
-      small {
-        font-size: 0.875em;
-      }
-    }
+  &:hover {
+    background-color: $blue;
+  }
+  &:disabled {
+    opacity: 0.25;
+    pointer-events: none;
+  }
+}
 
-    button.refresh {
-      width: 10em;
-      height: 2em;
-      padding-top: 0.125em;
+div.tableInfo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: -1em;
 
-      background-color: $gray;
-      border: solid 1px $blue;
-      border-radius: 0.25em;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-flow: row nowrap;
 
-      color: $white;
+  span {
+    margin: 0 1vw;
+    word-spacing: 0.125ch;
+
+    small {
       font-size: 0.875em;
-
-      cursor: pointer;
-
-      &:hover {
-        background-color: $blue;
-      }
     }
   }
+}
+
+div.tableControls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2rem;
+  margin-bottom: -2.125em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row nowrap;
+}
+
+div.tableContainer {
+  position: relative;
+  height: 30rem;
+  overflow-y: auto;
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  border: solid 1px $gray;
+  box-shadow: 0 0 5rem -2.5rem $black;
 
   table.table {
     width: 100%;
 
     background-color: $darkblue;
-    border: solid 1px $black;
     color: $white;
     font-size: 1em;
     border-collapse: collapse;
-
-    box-shadow: 0 0 2rem -1rem black;
 
     &.fixed {
       table-layout: fixed;
@@ -63,6 +82,8 @@ div.tableContainer {
     & > thead {
       & > tr {
         & > th {
+          position: sticky;
+          top: -1px;
           & > div {
             width: 100%;
             height: 2.5em;
@@ -72,10 +93,9 @@ div.tableContainer {
             align-items: center;
             justify-content: center;
 
-            // border-top: solid 1px;
             border-bottom: solid 2px;
             border-color: $blue;
-            // border-radius: 1rem;
+            background-color: $darkblue;
 
             cursor: pointer;
             transition: 125ms;
