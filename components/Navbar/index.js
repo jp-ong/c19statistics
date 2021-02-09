@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "shared/styles/modules/Navbar.module.scss";
+import styles from "styles/modules/Navbar.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 

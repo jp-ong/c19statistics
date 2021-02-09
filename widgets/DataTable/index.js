@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import styles from "shared/styles/modules/DataTable.module.scss";
+import { useState } from "react";
+import styles from "styles/modules/DataTable.module.scss";
 import { useRouter } from "next/router";
 import Link from "next/link";
 

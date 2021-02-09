@@ -1,4 +1,4 @@
-import "shared/styles/globals.scss";
+import "styles/globals.scss";
 import { useEffect } from "react";
 // import axios from "axios";
 // import { SWRConfig } from "swr";
