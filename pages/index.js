@@ -5,7 +5,6 @@ import connectDB from "utils/connectDB";
 import Stat from "models/Stat";
 
 export default function Home({ data }) {
-  console.log(data);
   return (
     <>
       <Head>
