@@ -1,100 +1,147 @@
 @import "shared/styles/config";
 
-table.table {
-  width: 100%;
-
-  background-color: $darkblue;
-  border: solid 1px $black;
-  color: $white;
+div.tableContainer {
+  margin: 0.5rem 0;
+  position: relative;
   font-size: 1rem;
-  border-collapse: collapse;
 
-  box-shadow: 0 0 2rem -1rem black;
+  div.tableInfo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: -2.25em;
 
-  &.fixed {
-    table-layout: fixed;
-  }
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-flow: row nowrap;
 
-  & > thead {
-    & > tr {
-      & > th {
-        & > div {
-          width: 100%;
-          height: 3em;
+    span {
+      margin: 0 1vw;
+      word-spacing: 0.125ch;
 
-          display: flex;
-          align-items: center;
-          justify-content: center;
+      small {
+        font-size: 0.875em;
+      }
+    }
 
-          // border-top: solid 1px;
-          border-bottom: solid 2px;
-          border-color: $blue;
-          // border-radius: 1rem;
+    button.refresh {
+      width: 10em;
+      height: 2em;
+      padding-top: 0.125em;
 
-          cursor: pointer;
-          transition: 125ms;
+      background-color: $gray;
+      border: solid 1px $blue;
+      border-radius: 0.25em;
 
-          &:hover,
-          &.active {
-            background-color: $blue;
-          }
-        }
+      color: $white;
+      font-size: 0.875em;
+
+      cursor: pointer;
+
+      &:hover {
+        background-color: $blue;
       }
     }
   }
 
-  & > tbody {
-    & > tr {
-      border-bottom: groove 1px $blue;
-      transition: background-color 125ms;
+  table.table {
+    width: 100%;
 
-      &:hover {
-        background-color: $blue;
-        * {
-          color: $white !important;
+    background-color: $darkblue;
+    border: solid 1px $black;
+    color: $white;
+    font-size: 1em;
+    border-collapse: collapse;
+
+    box-shadow: 0 0 2rem -1rem black;
+
+    &.fixed {
+      table-layout: fixed;
+    }
+
+    & > thead {
+      & > tr {
+        & > th {
+          & > div {
+            width: 100%;
+            height: 2.5em;
+            padding-top: 0.25em;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            // border-top: solid 1px;
+            border-bottom: solid 2px;
+            border-color: $blue;
+            // border-radius: 1rem;
+
+            cursor: pointer;
+            transition: 125ms;
+
+            &:hover,
+            &.active {
+              background-color: $blue;
+            }
+          }
         }
       }
+    }
 
-      &.link {
-        cursor: pointer;
-      }
+    & > tbody {
+      & > tr {
+        border-bottom: groove 1px $blue;
+        transition: background-color 125ms;
 
-      & > td {
-        & > div {
-          width: 100%;
-          height: 3.5em;
-          padding: 0.75em 1vw 0.25em;
+        &:hover {
+          background-color: $blue;
+          * {
+            color: $white !important;
+          }
+        }
 
-          display: flex;
-          justify-content: center;
-          flex-flow: column nowrap;
-          flex: 1 1 100%;
-          font-family: $sans;
-          font-weight: normal;
+        &.link {
+          cursor: pointer;
+        }
 
-          &.text {
-            align-items: flex-start;
-          }
-          &.index {
-            align-items: center;
-            font-family: $mono;
-            color: $blue;
-          }
-          &.number {
-            align-items: flex-end;
-            font-family: $mono;
-          }
-          &.bold {
-            font-weight: bold;
-          }
-          &.center {
-            align-items: center;
-            font-family: $mono;
-          }
+        & > td {
+          & > div {
+            width: 100%;
+            height: 3.5em;
+            padding: 0.75em 1vw 0.25em;
 
-          & > div.sub {
-            color: $blue;
-            transition: color 125ms;
+            display: flex;
+            justify-content: center;
+            flex-flow: column nowrap;
+            flex: 1 1 100%;
+            font-family: $sans;
+            font-weight: normal;
+
+            &.text {
+              align-items: flex-start;
+            }
+            &.index {
+              align-items: center;
+              font-family: $mono;
+              color: $blue;
+            }
+            &.number {
+              align-items: flex-end;
+              font-family: $mono;
+            }
+            &.bold {
+              font-weight: bold;
+            }
+            &.center {
+              align-items: center;
+              font-family: $mono;
+            }
+
+            & > div.sub {
+              color: $blue;
+              transition: color 125ms;
+            }
           }
         }
       }

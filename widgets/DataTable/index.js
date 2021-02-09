@@ -3,7 +3,8 @@ import styles from "shared/styles/modules/DataTable.module.scss";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const DataTable = ({ table_data, fixed }) => {
+const DataTable = ({ table_data, fixed, date }) => {
+  const router = useRouter();
   const { headers, body } = table_data;
 
   const [sortBy, setSortBy] = useState("Index");
@@ -23,10 +24,25 @@ const DataTable = ({ table_data, fixed }) => {
   };
 
   return (
-    <table className={`${styles.table} ${fixed ? styles.fixed : ""}`}>
-      <TableHead headers={headers} sortBy={sortBy} sortClicked={sortClicked} />
-      <TableBody sortedBody={sortedBody} />
-    </table>
+    <div className={styles.tableContainer}>
+      <div className={styles.tableInfo}>
+        <span>
+          <small>Latest data available at </small>
+          <b>{new Date(date).toLocaleDateString("en-CA")}</b>
+        </span>
+        <button className={styles.refresh} onClick={() => router.reload()}>
+          Refresh Data
+        </button>
+      </div>
+      <table className={`${styles.table} ${fixed ? styles.fixed : ""}`}>
+        <TableHead
+          headers={headers}
+          sortBy={sortBy}
+          sortClicked={sortClicked}
+        />
+        <TableBody sortedBody={sortedBody} />
+      </table>
+    </div>
   );
 };
 

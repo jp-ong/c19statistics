@@ -1,4 +1,5 @@
 import DataTable from "widgets/DataTable";
+import Link from "next/link";
 // import useSWR from "swr";
 
 // function fetchData() {
@@ -72,7 +73,16 @@ const GlobalData = ({ data }) => {
   // if (isError) return <>Error</>;
 
   const tableData = formatData(data);
-  return <DataTable table_data={tableData} />;
+  return (
+    <>
+      <div>
+        <span>
+          Click on a <b>country</b> to see its summary.
+        </span>
+      </div>
+      <DataTable table_data={tableData} date={data.date} />
+    </>
+  );
 };
 
 export default GlobalData;
