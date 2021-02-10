@@ -50,3 +50,22 @@ nav.nav {
     }
   }
 }
+
+@media screen and (max-width: 360px) {
+  nav.nav {
+    font-size: 0.75rem;
+    flex-flow: column nowrap;
+    & > div {
+      padding: 0;
+      flex-flow: column nowrap;
+
+      &.navleft {
+        align-items: center;
+      }
+
+      &.navright {
+        align-items: center;
+      }
+    }
+  }
+}
