@@ -19,9 +19,9 @@ div.tableInfo {
   }
 
   div.tableMisc {
-    flex-flow: column nowrap;
-    justify-content: center;
-    gap: 0.25em;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    gap: 1.25vw;
   }
 }
 
@@ -71,6 +71,8 @@ div.tableContainer {
     color: $white;
     font-size: 1em;
     border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 50rem;
 
     & > thead {
       & > tr {
@@ -90,7 +92,7 @@ div.tableContainer {
             align-items: center;
             justify-content: center;
 
-            border-bottom: solid 2px;
+            border-bottom: solid 1px;
             border-color: $blue;
             background-color: $darkblue;
 
@@ -99,7 +101,7 @@ div.tableContainer {
 
             &:hover,
             &.active {
-              background-color: $blue;
+              background-color: darken($color: $blue, $amount: 15);
             }
           }
         }
@@ -108,12 +110,12 @@ div.tableContainer {
 
     & > tbody {
       & > tr {
-        border-bottom: groove 1px $blue;
+        border-bottom: solid 1px $gray;
         transition: background-color 125ms;
 
         &:hover {
           & > td {
-            background-color: $blue;
+            background-color: darken($color: $blue, $amount: 15);
             * {
               color: $white !important;
             }
@@ -191,6 +193,7 @@ div.tableContainer {
     font-size: 0.875rem;
 
     table.table {
+      table-layout: auto;
       & > thead {
         & > tr {
           & > th {
