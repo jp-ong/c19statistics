@@ -1,22 +1,22 @@
 import Head from "next/head";
 import Layout from "components/Layout";
-import GlobalData from "components/GlobalData";
+import LatestData from "components/LatestData";
 import connectDB from "utils/connectDB";
 import Stat from "models/Stat";
 
-export default function Home({ data }) {
+export default function HomePage({ data }) {
   return (
     <>
       <Head>
-        <title>Global Statistics for COVID-19 Cases</title>
+        <title>Latest Statistics for COVID-19 Cases</title>
         <meta
           name="keywords"
           content="covid-19, global, statistics, confirmed, deaths, recovered, population"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Layout>
-        <GlobalData data={data} fixed info={"Global"} />
+      <Layout navtext={"Latest"}>
+        <LatestData data={data} fixed info={"Global"} />
       </Layout>
     </>
   );

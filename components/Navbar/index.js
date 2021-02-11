@@ -3,7 +3,7 @@ import styles from "styles/modules/Navbar.module.scss";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Navbar = ({ summary }) => {
+const Navbar = ({ navtext }) => {
   const [time, setTime] = useState(new Date());
   useEffect(() => {
     const timer = setInterval(() => {
@@ -21,7 +21,7 @@ const Navbar = ({ summary }) => {
             <a>
               <h1>
                 COVID<b>19</b>
-                <span>{summary ? "Summary" : "Global"}</span>
+                <span>{navtext}</span>
               </h1>
             </a>
           </Link>
