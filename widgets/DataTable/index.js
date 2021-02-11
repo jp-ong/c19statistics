@@ -3,7 +3,7 @@ import styles from "styles/modules/DataTable.module.scss";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-const DataTable = ({ table_data, fixed, date, info }) => {
+const DataTable = ({ table_data, fixed, date, info, DataNote }) => {
   const router = useRouter();
   const { headers, body } = table_data;
 
@@ -51,21 +51,21 @@ const DataTable = ({ table_data, fixed, date, info }) => {
   return (
     <>
       <div className={styles.tableInfo}>
-        <span>
-          <small>Viewing: </small>
-          <b>{info}</b>
-        </span>
-        <span>
-          <small>Index size: </small>
-          <b>{body.length}</b>
-        </span>
-        <span>
-          <small>Latest data available at </small>
-          <b>{new Date(date).toLocaleDateString("en-CA")}</b>
-        </span>
-        <button className={styles.button} onClick={() => router.reload()}>
-          Refresh Data
-        </button>
+        <div className={styles.tableMisc}>
+          <span>
+            <small>Viewing: </small>
+            <b>{info}</b>
+          </span>
+          <span>
+            <small>Index size: </small>
+            <b>{body.length}</b>
+          </span>
+          <span>
+            <small>Latest data available at </small>
+            <b>{new Date(date).toLocaleDateString("en-CA")}</b>
+          </span>
+        </div>
+        <DataNote styles={styles} />
       </div>
       <div className={styles.tableContainer}>
         <table className={`${styles.table} ${fixed ? styles.fixed : ""}`}>
