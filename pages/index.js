@@ -16,7 +16,7 @@ export default function HomePage({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Layout navtext={"Latest"}>
-        <LatestData data={data} fixed info={"Global"} />
+        <LatestData data={data} fixed info={"Latest"} />
       </Layout>
     </>
   );
