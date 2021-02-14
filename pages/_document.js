@@ -1,6 +1,9 @@
+import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import theme from "../src/lightTheme";
+import { ServerStyleSheets } from "@material-ui/core/styles";
 
-class MyDocument extends Document {
+export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
@@ -20,6 +23,7 @@ class MyDocument extends Document {
         `,
             }}
           />
+          <meta name="theme-color" content={theme.palette.primary.main} />
           <meta charSet="UTF-8" />
           <meta name="robots" content="index, follow" />
           <meta
@@ -29,7 +33,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <link
             rel="stylesheet preconnect"
-            href="https://use.typekit.net/czh2mrw.css"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
           <link rel="canonical" href="http://next-covid-app.vercel.app/" />
         </Head>
@@ -42,4 +46,22 @@ class MyDocument extends Document {
   }
 }
 
-export default MyDocument;
+MyDocument.getInitialProps = async (ctx) => {
+  const sheets = new ServerStyleSheets();
+  const originalRenderPage = ctx.renderPage;
+
+  ctx.renderPage = () =>
+    originalRenderPage({
+      enhanceApp: (App) => (props) => sheets.collect(<App {...props} />),
+    });
+
+  const initialProps = await Document.getInitialProps(ctx);
+
+  return {
+    ...initialProps,
+    styles: [
+      ...React.Children.toArray(initialProps.styles),
+      sheets.getStyleElement(),
+    ],
+  };
+};
