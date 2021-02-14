@@ -1,6 +1,6 @@
 const GlobalData = ({ data }) => {
   return (
-    <div className={styles.grid}>
+    <div>
       <GridCard header="Total Confirmed" value={data.confirmed} />
       <GridCard header="Total Deaths" value={data.deaths} />
       <GridCard header="Total Recovered" value={data.recovered} />
@@ -13,11 +13,11 @@ const GlobalData = ({ data }) => {
 
 const GridCard = ({ header, value }) => {
   return (
-    <div className={styles.card}>
-      <div className={styles.value}>
+    <div>
+      <div>
         <h2>{value?.toLocaleString()}</h2>
       </div>
-      <div className={styles.header}>{header}</div>
+      <div>{header}</div>
     </div>
   );
 };

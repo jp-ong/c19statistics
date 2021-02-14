@@ -14,10 +14,10 @@ const CountryData = ({ data, fixed, info }) => {
   );
 };
 
-const DataNote = ({ styles }) => {
+const DataNote = () => {
   const router = useRouter();
   return (
-    <div className={styles.tableNote}>
+    <div>
       <Link href="/">
         <a>
           &larr;{" "}
@@ -26,9 +26,7 @@ const DataNote = ({ styles }) => {
           </span>
         </a>
       </Link>
-      <button className={styles.button} onClick={() => router.reload()}>
-        Refresh Data
-      </button>
+      <button onClick={() => router.reload()}>Refresh Data</button>
     </div>
   );
 };
