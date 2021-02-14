@@ -22,10 +22,7 @@ const Navbar = ({ currentTheme, setThemeName }) => {
   });
 
   return (
-    <AppBar
-      position="sticky"
-      style={{ height: "5rem", justifyContent: "flex-end" }}
-    >
+    <AppBar position="sticky">
       <Toolbar>
         <Grid container alignItems="flex-end" justify="space-between">
           <Grid item>
