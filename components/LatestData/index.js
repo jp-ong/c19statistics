@@ -1,33 +1,57 @@
-import DataTable from "widgets/DataTable";
-import { useRouter } from "next/router";
+import {
+  TableContainer,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  Paper,
+} from "@material-ui/core";
 
-const LatestData = ({ data, fixed, info }) => {
+const LatestData = ({ data }) => {
+  const { headers, body, date, results } = data;
   return (
-    <>
-      <DataTable
-        DataNote={DataNote}
-        table_data={data}
-        date={data.date}
-        fixed={fixed}
-        info={info}
-      />
-    </>
+    <TableContainer component={Paper} color="primary">
+      <Table>
+        <TableHead>
+          <TableRow>
+            {headers.map((header) => (
+              <TableCell key={header}>{header}</TableCell>
+            ))}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {body.map((row, rowIndex) => (
+            <TableRow hover key={rowIndex}>
+              {Object.values(row.Data).map(
+                ({ value, sub, align }, colIndex) => (
+                  <TableCell key={colIndex} align={align}>
+                    <div>{value.toLocaleString()}</div>
+                    {sub !== undefined && <div>{sub.toLocaleString()}</div>}
+                  </TableCell>
+                )
+              )}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 
-const DataNote = ({ styles }) => {
-  const router = useRouter();
-  return (
-    <div className={styles.tableNote}>
-      <span>
-        Click on a <b>country</b> to see its summary.
-      </span>
+// const DataNote = ({ styles }) => {
+//   const router = useRouter();
+//   return (
+//     <div className={styles.tableNote}>
+//       <span>
+//         Click on a <b>country</b> to see its summary.
+//       </span>
 
-      <button className={styles.button} onClick={() => router.reload()}>
-        Refresh Data
-      </button>
-    </div>
-  );
-};
+//       <button className={styles.button} onClick={() => router.reload()}>
+//         Refresh Data
+//       </button>
+//     </div>
+//   );
+// };
 
 export default LatestData;

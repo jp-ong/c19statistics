@@ -9,6 +9,8 @@
     "export": "next export"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
     "mongoose": "^5.11.15",
     "next": "10.0.6",

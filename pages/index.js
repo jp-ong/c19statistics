@@ -4,7 +4,7 @@ import LatestData from "components/LatestData";
 import connectDB from "utils/connectDB";
 import Stat from "models/Stat";
 
-export default function HomePage({ data }) {
+export default function HomePage({ data, setThemeName, currentTheme }) {
   return (
     <>
       <Head>
@@ -15,8 +15,8 @@ export default function HomePage({ data }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Layout navtext={"Latest"}>
-        <LatestData data={data} fixed info={"Latest"} />
+      <Layout setThemeName={setThemeName} currentTheme={currentTheme}>
+        <LatestData data={data} />
       </Layout>
     </>
   );
@@ -78,36 +78,30 @@ function formatData(data) {
         Data: {
           Index: {
             value: index + 1,
-            style: "index",
-            font: "normal",
+            align: "center",
           },
           Country: {
             value: country,
-            style: "text",
-            font: "bold",
+            align: "left",
           },
           Population: {
             value: stat.population,
-            style: "number",
-            font: "normal",
+            align: "right",
           },
           Confirmed: {
             value: stat.confirmed,
             sub: stat.confirmed_daily,
-            style: "number",
-            font: "normal",
+            align: "right",
           },
           Deaths: {
             value: stat.deaths,
             sub: stat.deaths_daily,
-            style: "number",
-            font: "normal",
+            align: "right",
           },
           Recovered: {
             value: stat.recovered,
             sub: stat.recovered_daily,
-            style: "number",
-            font: "normal",
+            align: "right",
           },
         },
       };

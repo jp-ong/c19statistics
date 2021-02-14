@@ -1,5 +1,3 @@
-import styles from "styles/modules/GlobalData.module.scss";
-
 const GlobalData = ({ data }) => {
   return (
     <div className={styles.grid}>

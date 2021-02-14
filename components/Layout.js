@@ -1,12 +1,13 @@
 import React from "react";
 import Navbar from "components/Navbar";
+import { Container } from "@material-ui/core";
 
-const Layout = ({ navtext, children }) => {
+const Layout = ({ children, setThemeName, currentTheme }) => {
   return (
-    <div className="layout">
-      <Navbar navtext={navtext} />
-      <main>{children}</main>
-    </div>
+    <>
+      <Navbar setThemeName={setThemeName} currentTheme={currentTheme} />
+      <Container>{children}</Container>
+    </>
   );
 };
 
