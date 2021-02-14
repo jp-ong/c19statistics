@@ -42,12 +42,12 @@ const Navbar = ({ currentTheme, setThemeName }) => {
               spacing={2}
             >
               <Grid item>
-                <Typography variant="subtitle2">
+                <Typography variant="subtitle2" component="h2">
                   <b>{time.toLocaleString()}</b>
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant="subtitle2">
+                <Typography variant="subtitle2" component="h2">
                   <small>By </small>
                   <b>
                     <MuiLink
@@ -62,7 +62,7 @@ const Navbar = ({ currentTheme, setThemeName }) => {
                 </Typography>
               </Grid>
               <Grid item>
-                <Typography variant="subtitle2">
+                <Typography variant="subtitle2" component="h2">
                   <small>Source </small>
                   <b>
                     <MuiLink
