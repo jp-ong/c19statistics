@@ -35,25 +35,20 @@ const Layout = ({
         <main>
           <Grid container justify="space-between" alignItems="flex-end">
             <Grid item>
-              <Typography variant="subtitle2" component="span">
-                Click on a <b>country</b>!
-              </Typography>
-              <Breadcrumbs>
-                <MuiLink>
-                  <Button
-                    variant="text"
-                    size="medium"
-                    aria-label="home"
-                    onClick={() => router.push("/")}
-                    disabled={homepage}
-                  >
-                    <Home />
-                  </Button>
-                </MuiLink>
-                {!homepage && (
-                  <MuiLink color="textPrimary">{contentHeader}</MuiLink>
-                )}
-              </Breadcrumbs>
+              <Button
+                variant="text"
+                size="medium"
+                aria-label="home"
+                onClick={() => router.push("/")}
+                disabled={homepage}
+              >
+                <Home />
+              </Button>
+              {homepage && (
+                <Typography variant="subtitle2" component="span">
+                  Click on a <b>country</b>!
+                </Typography>
+              )}
             </Grid>
             <Grid item>
               <Grid container justify="flex-end">
@@ -61,6 +56,7 @@ const Layout = ({
                   <Button
                     variant="outlined"
                     size="small"
+                    aria-label="refresh"
                     onClick={() => router.reload()}
                     fullWidth
                   >
@@ -93,6 +89,7 @@ const ThemeButton = ({ currentTheme, setThemeName }) =>
       color="secondary"
       onClick={() => setThemeName("lightTheme")}
       size="small"
+      aria-label="light mode"
       fullWidth
     >
       <Sun />
@@ -103,6 +100,7 @@ const ThemeButton = ({ currentTheme, setThemeName }) =>
       color="secondary"
       onClick={() => setThemeName("darkTheme")}
       size="small"
+      aria-label="dark mode"
       fullWidth
     >
       <Moon />
