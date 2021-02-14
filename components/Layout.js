@@ -6,7 +6,7 @@ const Layout = ({ children, setThemeName, currentTheme }) => {
   return (
     <>
       <Navbar setThemeName={setThemeName} currentTheme={currentTheme} />
-      <Container>{children}</Container>
+      <Container style={{ marginTop: "2em" }}>{children}</Container>
     </>
   );
 };

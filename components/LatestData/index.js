@@ -1,57 +1,21 @@
-import {
-  TableContainer,
-  Table,
-  TableHead,
-  TableBody,
-  TableRow,
-  TableCell,
-  Paper,
-} from "@material-ui/core";
+import { DataGrid } from "@material-ui/data-grid";
+import { useRouter } from "next/router";
 
 const LatestData = ({ data }) => {
-  const { headers, body, date, results } = data;
+  const { columns, rows } = data;
+  const router = useRouter();
   return (
-    <TableContainer component={Paper} color="primary">
-      <Table>
-        <TableHead>
-          <TableRow>
-            {headers.map((header) => (
-              <TableCell key={header}>{header}</TableCell>
-            ))}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {body.map((row, rowIndex) => (
-            <TableRow hover key={rowIndex}>
-              {Object.values(row.Data).map(
-                ({ value, sub, align }, colIndex) => (
-                  <TableCell key={colIndex} align={align}>
-                    <div>{value.toLocaleString()}</div>
-                    {sub !== undefined && <div>{sub.toLocaleString()}</div>}
-                  </TableCell>
-                )
-              )}
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div style={{ height: 600, width: "100%" }}>
+      <DataGrid
+        rows={rows}
+        columns={columns}
+        pageSize={10}
+        onRowClick={({ row }) => router.push(`/${row.country}`)}
+        get
+        paginationMode="server"
+      />
+    </div>
   );
 };
-
-// const DataNote = ({ styles }) => {
-//   const router = useRouter();
-//   return (
-//     <div className={styles.tableNote}>
-//       <span>
-//         Click on a <b>country</b> to see its summary.
-//       </span>
-
-//       <button className={styles.button} onClick={() => router.reload()}>
-//         Refresh Data
-//       </button>
-//     </div>
-//   );
-// };
 
 export default LatestData;

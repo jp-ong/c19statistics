@@ -63,47 +63,65 @@ function formatData(data) {
   return {
     date: data.date,
     results: data.results,
-    headers: [
-      "Index",
-      "Country",
-      "Population",
-      "Confirmed",
-      "Deaths",
-      "Recovered",
+    columns: [
+      { field: "index", headerName: "Index", width: 100 },
+      { field: "country", headerName: "Country", width: 300 },
+      {
+        field: "population",
+        headerName: "Population",
+        type: "number",
+        width: 150,
+      },
+      {
+        field: "confirmed",
+        headerName: "Confirmed",
+        type: "number",
+        width: 150,
+      },
+      {
+        field: "deaths",
+        headerName: "Deaths",
+        type: "number",
+        width: 150,
+      },
+      {
+        field: "recovered",
+        headerName: "Recovered",
+        type: "number",
+        width: 150,
+      },
+      {
+        field: "confirmed_daily",
+        headerName: "+Confirmed",
+        type: "number",
+        width: 150,
+      },
+      {
+        field: "deaths_daily",
+        headerName: "+Deaths",
+        type: "number",
+        width: 150,
+      },
+      {
+        field: "recovered_daily",
+        headerName: "+Recovered",
+        type: "number",
+        width: 150,
+      },
     ],
-    body: data.stats.map((stat, index) => {
+    rows: data.stats.map((stat, index) => {
       const country = stat.country === "Taiwan*" ? "Taiwan" : stat.country;
       return {
-        Link: `/${country}`,
-        Data: {
-          Index: {
-            value: index + 1,
-            align: "center",
-          },
-          Country: {
-            value: country,
-            align: "left",
-          },
-          Population: {
-            value: stat.population,
-            align: "right",
-          },
-          Confirmed: {
-            value: stat.confirmed,
-            sub: stat.confirmed_daily,
-            align: "right",
-          },
-          Deaths: {
-            value: stat.deaths,
-            sub: stat.deaths_daily,
-            align: "right",
-          },
-          Recovered: {
-            value: stat.recovered,
-            sub: stat.recovered_daily,
-            align: "right",
-          },
-        },
+        id: index,
+        index: index + 1,
+        country,
+        population: stat.population,
+        confirmed: stat.confirmed,
+        deaths: stat.deaths,
+        recovered: stat.recovered,
+        confirmed_daily: stat.confirmed_daily,
+        deaths_daily: stat.deaths_daily,
+        recovered_daily: stat.recovered_daily,
       };
     }),
   };
