@@ -4,7 +4,7 @@ import GlobalData from "components/GlobalData";
 import Stat from "models/Stat";
 import connectDB from "utils/connectDB";
 
-export default function WorldPage({ data }) {
+export default function WorldPage({ data, setThemeName, currentTheme }) {
   return (
     <>
       <Head>
@@ -15,7 +15,11 @@ export default function WorldPage({ data }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Layout navtext={"Global"}>
+      <Layout
+        setThemeName={setThemeName}
+        currentTheme={currentTheme}
+        contentHeader={"Global"}
+      >
         <GlobalData data={data} />
       </Layout>
     </>

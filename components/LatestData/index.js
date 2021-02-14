@@ -1,20 +1,20 @@
 import { DataGrid } from "@material-ui/data-grid";
 import { useRouter } from "next/router";
+import { Box, Paper } from "@material-ui/core";
 
 const LatestData = ({ data }) => {
   const { columns, rows } = data;
   const router = useRouter();
   return (
-    <div style={{ height: 600, width: "100%" }}>
+    <Box component={Paper} style={{ width: "100%", height: 600 }}>
       <DataGrid
         rows={rows}
         columns={columns}
         pageSize={10}
         onRowClick={({ row }) => router.push(`/${row.country}`)}
-        get
-        paginationMode="server"
+        rowsPerPageOptions={[10, 25, 50, 100]}
       />
-    </div>
+    </Box>
   );
 };
 

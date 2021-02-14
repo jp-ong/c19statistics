@@ -3,13 +3,12 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   Grid,
   Link as MuiLink,
+  Paper,
 } from "@material-ui/core";
-import { Brightness7 as Sun, Brightness4 as Moon } from "@material-ui/icons";
 
-const Navbar = ({ currentTheme, setThemeName }) => {
+const Navbar = ({ subtitle }) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -23,27 +22,30 @@ const Navbar = ({ currentTheme, setThemeName }) => {
 
   return (
     <AppBar position="sticky">
-      <Toolbar style={{ paddingTop: "1em" }}>
+      <Toolbar
+        style={{ padding: "2em 5vw .5em", boxShadow: "none" }}
+        component={Paper}
+      >
         <Grid container alignItems="flex-end" justify="space-between">
-          <Grid item>
+          <Grid item xs={12} sm={6}>
             <Typography variant="h5" component="h1">
               COVID<b>19</b>
-              <small style={{ fontSize: ".6em" }}>Statistics</small>
+              <small style={{ fontSize: ".6em" }}>{subtitle}</small>
             </Typography>
           </Grid>
-          <Grid item>
+          <Grid item xs={12} sm={6}>
             <Grid
               container
-              justify="space-between"
+              justify="flex-end"
               alignItems="flex-end"
-              spacing={2}
+              style={{ textAlign: "right" }}
             >
-              <Grid item>
+              <Grid item xs={12}>
                 <Typography variant="subtitle2" component="h2">
                   <b>{time.toLocaleString()}</b>
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid item xs={12}>
                 <Typography variant="subtitle2" component="h2">
                   <small>By </small>
                   <b>
@@ -58,7 +60,7 @@ const Navbar = ({ currentTheme, setThemeName }) => {
                   </b>
                 </Typography>
               </Grid>
-              <Grid item>
+              <Grid item xs={12}>
                 <Typography variant="subtitle2" component="h2">
                   <small>Source </small>
                   <b>
@@ -73,12 +75,6 @@ const Navbar = ({ currentTheme, setThemeName }) => {
                   </b>
                 </Typography>
               </Grid>
-              <Grid item>
-                <ThemeButton
-                  currentTheme={currentTheme}
-                  setThemeName={setThemeName}
-                />
-              </Grid>
             </Grid>
           </Grid>
         </Grid>
@@ -86,70 +82,5 @@ const Navbar = ({ currentTheme, setThemeName }) => {
     </AppBar>
   );
 };
-
-const ThemeButton = ({ currentTheme, setThemeName }) =>
-  currentTheme === "darkTheme" ? (
-    <Button
-      variant="contained"
-      color="primary"
-      onClick={() => setThemeName("lightTheme")}
-      startIcon={<Sun />}
-      size="small"
-    >
-      Light
-    </Button>
-  ) : (
-    <Button
-      variant="contained"
-      color="primary"
-      onClick={() => setThemeName("darkTheme")}
-      startIcon={<Moon />}
-      size="small"
-    >
-      Dark
-    </Button>
-  );
-
-{
-  /* <nav>
-      <div>
-        <div>
-          <Link href="/">
-            <a>
-              <h1>
-                COVID<b>19</b>
-                <span>{navtext}</span>
-              </h1>
-            </a>
-          </Link>
-        </div>
-      </div>
-      <div>
-        <div>
-          <small>By </small>
-          <a
-            href="https://github.com/jp-ong"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <b>John Paul Ong</b>
-          </a>
-        </div>
-        <div>
-          <small>Source </small>
-          <a
-            href="https://developer.mongodb.com/article/johns-hopkins-university-covid-19-data-atlas/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <b>JHU MongoDB Atlas</b>
-          </a>
-        </div>
-        <div>
-          <span>{time.toLocaleString()}</span>
-        </div>
-      </div>
-    </nav> */
-}
 
 export default Navbar;

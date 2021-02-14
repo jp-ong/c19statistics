@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import connectDB from "utils/connectDB";
 import Stat from "models/Stat";
 
-export default function CountryPage({ data }) {
+export default function CountryPage({ data, setThemeName, currentTheme }) {
   const router = useRouter();
   const { country } = router.query;
   return (
@@ -18,8 +18,12 @@ export default function CountryPage({ data }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Layout navtext={"Summary"}>
-        <CountryData fixed data={data} info={country} />
+      <Layout
+        setThemeName={setThemeName}
+        currentTheme={currentTheme}
+        contentHeader={country}
+      >
+        <CountryData data={data} />
       </Layout>
     </>
   );
@@ -94,60 +98,53 @@ function formatData(data) {
   return {
     date: data.date,
     results: data.results,
-    headers: [
-      "Index",
-      "Date",
-      "Confirmed",
-      "Deaths",
-      "Recovered",
-      "New_Confirmed",
-      "New_Deaths",
-      "New_Recovered",
+    columns: [
+      { field: "index", headerName: "Index", width: 100 },
+      { field: "date", headerName: "Date", width: 200 },
+      {
+        field: "confirmed",
+        headerName: "Confirmed",
+        width: 150,
+        type: "number",
+      },
+      { field: "deaths", headerName: "Deaths", width: 150, type: "number" },
+      {
+        field: "recovered",
+        headerName: "Recovered",
+        width: 150,
+        type: "number",
+      },
+      {
+        field: "confirmed_daily",
+        headerName: "+Confirmed",
+        width: 150,
+        type: "number",
+      },
+      {
+        field: "deaths_daily",
+        headerName: "+Deaths",
+        width: 150,
+        type: "number",
+      },
+      {
+        field: "recovered_daily",
+        headerName: "+Recovered",
+        width: 150,
+        type: "number",
+      },
     ],
-    body: data.stats.map((stat, index) => {
+    rows: data.stats.map((stat, index) => {
       return {
-        Data: {
-          Index: {
-            value: index + 1,
-            style: "index",
-            font: "normal",
-          },
-          Date: {
-            value: new Date(stat.date).toLocaleDateString("en-CA"),
-            style: "center",
-            font: "normal",
-          },
-          Confirmed: {
-            value: stat.confirmed,
-            style: "center",
-            font: "normal",
-          },
-          Deaths: {
-            value: stat.deaths,
-            style: "center",
-            font: "normal",
-          },
-          Recovered: {
-            value: stat.recovered,
-            style: "center",
-            font: "normal",
-          },
-          New_Confirmed: {
-            value: stat.confirmed_daily,
-            style: "center",
-            font: "normal",
-          },
-          New_Deaths: {
-            value: stat.deaths_daily,
-            style: "center",
-            font: "normal",
-          },
-          New_Recovered: {
-            value: stat.recovered_daily,
-            style: "center",
-            font: "normal",
-          },
-        },
+        id: index,
+        index: index + 1,
+        date: new Date(stat.date).toLocaleDateString("en-CA"),
+        population: stat.population,
+        confirmed: stat.confirmed,
+        deaths: stat.deaths,
+        recovered: stat.recovered,
+        confirmed_daily: stat.confirmed_daily,
+        deaths_daily: stat.deaths_daily,
+        recovered_daily: stat.recovered_daily,
       };
     }),
   };

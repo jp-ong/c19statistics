@@ -15,7 +15,12 @@ export default function HomePage({ data, setThemeName, currentTheme }) {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <Layout setThemeName={setThemeName} currentTheme={currentTheme}>
+      <Layout
+        homepage
+        setThemeName={setThemeName}
+        currentTheme={currentTheme}
+        contentHeader={"Latest"}
+      >
         <LatestData data={data} />
       </Layout>
     </>
