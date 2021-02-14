@@ -12,6 +12,7 @@ const LatestData = ({ data }) => {
         columns={columns}
         pageSize={10}
         onRowClick={({ row }) => router.push(`/${row.country}`)}
+        onRowHover={({ row }) => router.prefetch(`/${row.country}`)}
         rowsPerPageOptions={[10, 25, 50, 100]}
       />
     </Box>
