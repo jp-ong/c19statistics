@@ -4,8 +4,8 @@ import { Container, Button, Grid, Typography } from "@material-ui/core";
 import {
   Home,
   Refresh,
-  Brightness7Rounded as Sun,
-  Brightness4Rounded as Moon,
+  WbSunnyRounded as Sun,
+  Brightness2Rounded as Moon,
 } from "@material-ui/icons";
 import { useRouter } from "next/router";
 
@@ -34,6 +34,7 @@ const Layout = ({
                 aria-label="home"
                 onClick={() => router.push("/")}
                 disabled={homepage}
+                title="Go to homepage"
               >
                 <Home />
               </Button>
@@ -52,6 +53,7 @@ const Layout = ({
                     aria-label="refresh"
                     onClick={() => router.reload()}
                     fullWidth
+                    title="Refresh data"
                   >
                     <Refresh />
                   </Button>
@@ -84,6 +86,7 @@ const ThemeButton = ({ currentTheme, setThemeName }) =>
       size="small"
       aria-label="light mode"
       fullWidth
+      title="Toggle light mode"
     >
       <Sun />
     </Button>
@@ -95,6 +98,7 @@ const ThemeButton = ({ currentTheme, setThemeName }) =>
       size="small"
       aria-label="dark mode"
       fullWidth
+      title="Toggle dark mode"
     >
       <Moon />
     </Button>
