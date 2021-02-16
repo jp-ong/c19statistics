@@ -23,6 +23,10 @@ export default class MyDocument extends Document {
         `,
             }}
           />
+          <meta
+            name="google-site-verification"
+            content="Ko7JRa6KsWM3DVrs4CYEQx6xPa8Uaksj9UnIzaRKonw"
+          />
           <meta name="theme-color" content={theme.palette.primary.main} />
           <meta charSet="UTF-8" />
           <meta name="robots" content="index, follow" />
