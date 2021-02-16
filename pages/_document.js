@@ -35,7 +35,7 @@ export default class MyDocument extends Document {
             rel="stylesheet preconnect"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <link rel="canonical" href="http://next-covid-app.vercel.app/" />
+          <link rel="canonical" href="https://c19statistics.vercel.app/" />
         </Head>
         <body>
           <Main />
