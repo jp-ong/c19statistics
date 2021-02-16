@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "components/Navbar";
-import { Container, Button, Grid, Typography } from "@material-ui/core";
+import { Container, Button, Grid, Typography, Box } from "@material-ui/core";
 import {
   Home,
   Refresh,
@@ -24,12 +24,18 @@ const Layout = ({
         currentTheme={currentTheme}
         subtitle={contentHeader}
       />
-      <Container style={{ marginTop: "2em", marginBottom: "2em" }}>
+      <Container style={{ marginTop: "2.5em", marginBottom: "7.5em" }}>
         <main>
+          <Box marginTop={7.5} marginBottom={2.5}>
+            <Typography variant="h2" component="h1">
+              <b>{contentHeader}</b> <small>summary</small>
+            </Typography>
+          </Box>
           <Grid container justify="space-between" alignItems="flex-end">
             <Grid item>
               <Button
-                variant="text"
+                variant="contained"
+                color="secondary"
                 size="medium"
                 aria-label="home"
                 onClick={() => router.push("/")}
@@ -39,7 +45,11 @@ const Layout = ({
                 <Home />
               </Button>
               {homepage && (
-                <Typography variant="subtitle2" component="span">
+                <Typography
+                  variant="subtitle2"
+                  component="span"
+                  style={{ marginLeft: ".5em" }}
+                >
                   Click on a <b>country</b>!
                 </Typography>
               )}
