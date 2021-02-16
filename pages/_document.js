@@ -10,16 +10,16 @@ export default class MyDocument extends Document {
         <Head>
           <script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-ZWR7KJFE6F"
+            src="https://www.googletagmanager.com/gtag/js?id=G-S018B8JR9X"
           ></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-ZWR7KJFE6F');
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'G-S018B8JR9X');
         `,
             }}
           />
