@@ -14,6 +14,7 @@ export default function WorldPage({ data, setThemeName, currentTheme }) {
           content={`covid-19, global, world, statistics, confirmed, deaths, recovered, population`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href="https://c19statistics.vercel.app/global" />
       </Head>
       <Layout
         setThemeName={setThemeName}

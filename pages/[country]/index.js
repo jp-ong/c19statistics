@@ -17,6 +17,10 @@ export default function CountryPage({ data, setThemeName, currentTheme }) {
           content={`covid-19, ${country}, summary, statistics, confirmed, deaths, recovered, population`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+          rel="canonical"
+          href={`https://c19statistics.vercel.app/${country}`}
+        />
       </Head>
       <Layout
         setThemeName={setThemeName}
