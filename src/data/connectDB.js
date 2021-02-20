@@ -1,11 +1,7 @@
 import mongoose from "mongoose";
 
 const connectDB = async () => {
-  if (mongoose.connection.readyState > 0) {
-    return console.log(
-      `MongoDB ready state: ${mongoose.connection.readyState}`
-    );
-  }
+  if (mongoose.connection.readyState > 0) return;
 
   await mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
