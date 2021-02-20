@@ -11,14 +11,7 @@ import {
   SentimentVerySatisfiedOutlined as RecoveredIcon,
   AddOutlined as AddIcon,
 } from "@material-ui/icons";
-import {
-  indigo,
-  red,
-  green,
-  pink,
-  purple,
-  teal,
-} from "@material-ui/core/colors";
+import { indigo, red, green, pink, teal } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
   root: { width: "100%" },
