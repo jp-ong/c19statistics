@@ -1,4 +1,7 @@
 import React from "react";
+import { CssBaseline } from "@material-ui/core";
+import ThemeContext from "src/themes/ThemeContext";
+import "styles/global.scss";
 
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
@@ -8,7 +11,12 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <ThemeContext>
+      <CssBaseline />
+      <Component {...pageProps} />
+    </ThemeContext>
+  );
 }
 
 export default MyApp;

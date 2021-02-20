@@ -16,6 +16,7 @@
     "next": "10.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "recharts": "^2.0.7",
     "sass": "^1.32.6"
   },
   "description": "COVID19 Statistics WebApp using NextJS",

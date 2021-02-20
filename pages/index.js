@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Layout from "components/layout";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://c19statistics.vercel.app/" />
       </Head>
+      <Layout />
     </>
   );
 }
