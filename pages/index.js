@@ -3,7 +3,7 @@ import Layout from "components/layout";
 import GlobalData from "components/GlobalData";
 import fetchGlobalData from "src/data/fetchGlobalData";
 
-export default function HomePage({ data }) {
+export default function HomePage({ data, countries, date }) {
   return (
     <>
       <Head>
@@ -16,7 +16,7 @@ export default function HomePage({ data }) {
         <link rel="canonical" href="https://c19statistics.vercel.app/" />
       </Head>
       <Layout>
-        <GlobalData data={data} />
+        <GlobalData data={data} countries={countries} date={date} />
       </Layout>
     </>
   );
@@ -25,7 +25,11 @@ export default function HomePage({ data }) {
 export async function getStaticProps() {
   const { data } = await fetchGlobalData();
   return {
-    props: { data: reduceData(data) },
+    props: {
+      data: reduceData(data),
+      countries: data.map(({ country }) => country).sort(),
+      date: data[0].date,
+    },
   };
 }
 

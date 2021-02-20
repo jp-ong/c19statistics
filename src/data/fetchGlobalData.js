@@ -7,13 +7,9 @@ const fetchGlobalData = async (queryDate) => {
   await connectDB();
   const { date } = queryDate || (await fetchLatestEntry());
 
-  const stats = await Stat.find(
-    { $and: [{ date: new Date(date) }, { country_code: { $ne: [] } }] },
-    PROJECT,
-    {
-      sort: { confirmed: -1 },
-    }
-  );
+  const stats = await Stat.find({ date: new Date(date) }, PROJECT, {
+    sort: { confirmed: -1 },
+  });
 
   return { data: JSON.parse(JSON.stringify(stats)) };
 };

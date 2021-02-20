@@ -2,8 +2,8 @@ import {
   Grid,
   Card,
   CardContent,
-  makeStyles,
   Typography,
+  makeStyles,
 } from "@material-ui/core";
 import {
   SentimentDissatisfiedOutlined as ConfirmedIcon,
@@ -12,12 +12,22 @@ import {
   AddOutlined as AddIcon,
 } from "@material-ui/icons";
 import { indigo, red, green, pink, teal } from "@material-ui/core/colors";
+import CountrySelector from "./CountrySelector";
 
 const useStyles = makeStyles({
   root: { width: "100%" },
 });
 
-const GlobalData = ({ data }) => {
+const GlobalData = ({ data, countries, date }) => {
+  return (
+    <>
+      <CountrySelector countries={countries} />
+      <GridSection data={data} />
+    </>
+  );
+};
+
+const GridSection = ({ data }) => {
   const {
     confirmed,
     deaths,
@@ -27,44 +37,57 @@ const GlobalData = ({ data }) => {
     recovered_daily,
   } = data;
 
+  const items = [
+    {
+      label: "Confirmed",
+      value: confirmed,
+      icon: <ConfirmedIcon />,
+      bgColor: indigo[700],
+    },
+    {
+      label: "Deaths",
+      value: deaths,
+      icon: <DeathIcon />,
+      bgColor: pink[700],
+    },
+    {
+      label: "Recovered",
+      value: recovered,
+      icon: <RecoveredIcon />,
+      bgColor: teal[700],
+    },
+    {
+      label: "New Confirmed",
+      value: confirmed_daily,
+      icon: <AddIcon />,
+      trimColor: indigo["A400"],
+    },
+    {
+      label: "New Deaths",
+      value: deaths_daily,
+      icon: <AddIcon />,
+      trimColor: red["A400"],
+    },
+    {
+      label: "New Recovered",
+      value: recovered_daily,
+      icon: <AddIcon />,
+      trimColor: green["A400"],
+    },
+  ];
+
   return (
     <Grid container spacing={1}>
-      <GridCard
-        label={"Confirmed"}
-        value={confirmed}
-        icon={<ConfirmedIcon />}
-        bgColor={indigo[700]}
-      />
-      <GridCard
-        label={"Deaths"}
-        value={deaths}
-        icon={<DeathIcon />}
-        bgColor={pink[700]}
-      />
-      <GridCard
-        label={"Recovered"}
-        value={recovered}
-        icon={<RecoveredIcon />}
-        bgColor={teal[700]}
-      />
-      <GridCard
-        label={"New Confirmed"}
-        value={confirmed_daily}
-        icon={<AddIcon />}
-        trimColor={indigo["A400"]}
-      />
-      <GridCard
-        label={"New Deaths"}
-        value={deaths_daily}
-        icon={<AddIcon />}
-        trimColor={red["A400"]}
-      />
-      <GridCard
-        label={"New Recovered"}
-        value={recovered_daily}
-        icon={<AddIcon />}
-        trimColor={green["A400"]}
-      />
+      {items.map(({ label, value, icon, bgColor, trimColor }) => (
+        <GridCard
+          key={label}
+          label={label}
+          value={value}
+          icon={icon}
+          bgColor={bgColor}
+          trimColor={trimColor}
+        />
+      ))}
     </Grid>
   );
 };

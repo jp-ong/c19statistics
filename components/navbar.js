@@ -7,7 +7,8 @@ import {
   FormControlLabel,
   Typography,
   makeStyles,
-  Link,
+  Tooltip,
+  Link as MuiLink,
 } from "@material-ui/core";
 import {
   WbSunnyOutlined as SunIcon,
@@ -43,23 +44,24 @@ const Navbar = () => {
       <Toolbar className={classes.root} component={Paper}>
         <Typography variant="h5" component="h1" className={classes.title}>
           <b>COVID19</b>
-          <span style={{ fontSize: ".75em" }}>Statistics</span>
+          <span style={{ fontSize: ".6em" }}>Statistics</span>
         </Typography>
         {themeName === "light" ? <SunIcon /> : <MoonIcon />}
-        <FormControlLabel
-          className={classes.labelPlacementEn}
-          labelPlacement="end"
-          label={themeName.charAt(0).toUpperCase() + themeName.slice(1)}
-          control={
-            <Switch
-              aria-label="Toggle Light or Dark Mode"
-              title="Toggle Light or Dark Mode"
-              onChange={() =>
-                setThemeName(themeName === "light" ? "dark" : "light")
-              }
-            />
-          }
-        ></FormControlLabel>
+        <Tooltip title="Toggle Light or Dark Mode" arrow>
+          <FormControlLabel
+            className={classes.labelPlacementEn}
+            labelPlacement="end"
+            label={themeName.charAt(0).toUpperCase() + themeName.slice(1)}
+            control={
+              <Switch
+                aria-label="Toggle Light or Dark Mode"
+                onChange={() =>
+                  setThemeName(themeName === "light" ? "dark" : "light")
+                }
+              />
+            }
+          ></FormControlLabel>
+        </Tooltip>
       </Toolbar>
       <ExtraNavbar />
     </AppBar>
@@ -87,26 +89,30 @@ const ExtraNavbar = () => {
       <Typography variant="body2" component="span">
         <small>By </small>
         <b>
-          <Link
-            href="https://github.com/jp-ong"
-            target="_blank"
-            rel="noopener noreferrer"
-            color="inherit"
-          >
-            John Paul Ong
-          </Link>
+          <Tooltip title="View my GitHub Profile" arrow>
+            <MuiLink
+              href="https://github.com/jp-ong"
+              target="_blank"
+              rel="noopener noreferrer"
+              color="inherit"
+            >
+              John Paul Ong
+            </MuiLink>
+          </Tooltip>
         </b>
       </Typography>
       <Typography variant="body2" component="span">
         <small>Source </small>
-        <Link
-          href="https://developer.mongodb.com/article/johns-hopkins-university-covid-19-data-atlas/"
-          target="_blank"
-          rel="noopener noreferrer"
-          color="inherit"
-        >
-          <b>JHU MongoDB Atlas</b>
-        </Link>
+        <Tooltip title="Source of COVID19 Data" arrow>
+          <MuiLink
+            href="https://developer.mongodb.com/article/johns-hopkins-university-covid-19-data-atlas/"
+            target="_blank"
+            rel="noopener noreferrer"
+            color="inherit"
+          >
+            <b>JHU MongoDB Atlas</b>
+          </MuiLink>
+        </Tooltip>
       </Typography>
       <Typography variant="body2" component="span">
         <small>Date </small>
