@@ -17,6 +17,7 @@ import { ThemeContext } from "src/themes/ThemeContext";
 const useStyles = makeStyles({
   root: {
     paddingTop: ".75em",
+    borderRadius: 0,
   },
   title: {
     flexGrow: 1,
@@ -30,7 +31,12 @@ const Navbar = () => {
   const classes = useStyles();
   const { themeName, setThemeName } = useContext(ThemeContext);
   return (
-    <AppBar position="sticky" variant="elevation" elevation={0}>
+    <AppBar
+      position="sticky"
+      variant="outlined"
+      style={{ border: "none" }}
+      color="transparent"
+    >
       <Toolbar className={classes.root} component={Paper}>
         <Typography variant="h5" component="h1" className={classes.title}>
           <b>COVID19</b>
