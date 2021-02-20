@@ -12,13 +12,11 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/data-grid": "^4.0.0-alpha.19",
     "@material-ui/icons": "^4.11.2",
-    "axios": "^0.21.1",
     "mongoose": "^5.11.15",
     "next": "10.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "sass": "^1.32.6",
-    "swr": "^0.4.1"
+    "sass": "^1.32.6"
   },
   "description": "COVID19 Statistics WebApp using NextJS",
   "main": "index.js",

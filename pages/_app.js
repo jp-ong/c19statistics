@@ -1,18 +1,6 @@
 import React from "react";
-import { CssBaseline, ThemeProvider } from "@material-ui/core";
-import { useState } from "react";
-import darkTheme from "../src/darkTheme";
-import lightTheme from "../src/lightTheme";
-
-const themeMap = {
-  lightTheme,
-  darkTheme,
-};
 
 function MyApp({ Component, pageProps }) {
-  const [themeName, setThemeName] = useState("lightTheme");
-  const theme = themeMap[themeName];
-
   React.useEffect(() => {
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
@@ -20,16 +8,7 @@ function MyApp({ Component, pageProps }) {
     }
   }, []);
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Component
-        {...pageProps}
-        currentTheme={themeName}
-        setThemeName={setThemeName}
-      />
-    </ThemeProvider>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
