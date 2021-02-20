@@ -1,6 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const StatSchema = Schema(
+const StatSchema = mongoose.Schema(
   {
     date: Date,
     country: String,

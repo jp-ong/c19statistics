@@ -1,13 +1,16 @@
 import {
   AppBar,
+  Paper,
   Toolbar,
-  FormGroup,
-  FormControlLabel,
   Switch,
+  FormControlLabel,
   Typography,
   makeStyles,
 } from "@material-ui/core";
-import { Brightness4, Brightness7 } from "@material-ui/icons";
+import {
+  WbSunnyOutlined as SunIcon,
+  Brightness2Outlined as MoonIcon,
+} from "@material-ui/icons";
 import { useContext } from "react";
 import { ThemeContext } from "src/themes/ThemeContext";
 
@@ -18,31 +21,38 @@ const useStyles = makeStyles({
   title: {
     flexGrow: 1,
   },
+  labelPlacementEn: {
+    marginLeft: 1,
+  },
 });
 
 const Navbar = () => {
   const classes = useStyles();
   const { themeName, setThemeName } = useContext(ThemeContext);
   return (
-    <AppBar position="sticky">
-      <Toolbar className={classes.root}>
+    <AppBar position="sticky" variant="elevation" elevation={0}>
+      <Toolbar className={classes.root} component={Paper}>
         <Typography variant="h5" component="h1" className={classes.title}>
           <b>COVID19</b>
-          <small style={{ fontSize: ".75em" }}>Statistics</small>
+          <span style={{ fontSize: ".75em" }}>Statistics</span>
         </Typography>
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch
-                icon={<Brightness7 />}
-                checkedIcon={<Brightness4 />}
-                onChange={() =>
-                  setThemeName(themeName === "light" ? "dark" : "light")
-                }
-              />
-            }
-          />
-        </FormGroup>
+        {themeName === "light" ? <SunIcon /> : <MoonIcon />}
+        <FormControlLabel
+          className={classes.labelPlacementEn}
+          labelPlacement="end"
+          label={`${
+            themeName.charAt(0).toUpperCase() + themeName.slice(1)
+          } Mode`}
+          control={
+            <Switch
+              aria-label="Toggle Light or Dark Mode"
+              title="Toggle Light or Dark Mode"
+              onChange={() =>
+                setThemeName(themeName === "light" ? "dark" : "light")
+              }
+            />
+          }
+        ></FormControlLabel>
       </Toolbar>
     </AppBar>
   );
