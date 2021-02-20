@@ -44,7 +44,7 @@ export async function getStaticPaths() {
   const paths = data.map(({ country }) => {
     return {
       params: {
-        country: encodeURIComponent(country === "Taiwan*" ? "Taiwan" : country),
+        country: country === "Taiwan*" ? "Taiwan" : country,
       },
     };
   });
