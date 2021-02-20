@@ -19,10 +19,13 @@ const CountrySelector = ({ countries }) => {
   const countryHovered = ({ target: { textContent } }) => {
     router.prefetch(`/${textContent}`);
   };
+  const handleKeyPress = ({ key, target: { value } }) => {
+    key === "Enter" && router.push(`/${value}`);
+  };
   return (
     <Autocomplete
       id="country-select"
-      style={{ width: "100%", marginBottom: "1em" }}
+      style={{ width: "100%", margin: "1em 0" }}
       options={countries}
       autoHighlight
       getOptionLabel={(option) => option}
@@ -48,6 +51,7 @@ const CountrySelector = ({ countries }) => {
             ...params.inputProps,
             autoComplete: "new-password",
           }}
+          onKeyPress={handleKeyPress}
         />
       )}
     />

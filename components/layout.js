@@ -3,7 +3,7 @@ import Navbar from "components/navbar";
 
 const useStyles = makeStyles({
   root: {
-    paddingTop: 50,
+    marginTop: 25,
   },
 });
 

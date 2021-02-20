@@ -1,6 +1,7 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core";
+import { light as theme } from "src/themes";
 
 export default class MyDocument extends Document {
   render() {
@@ -22,6 +23,7 @@ export default class MyDocument extends Document {
         `,
             }}
           />
+          <meta name="theme-color" content={theme.palette.primary.main} />
           <meta
             name="google-site-verification"
             content="Ko7JRa6KsWM3DVrs4CYEQx6xPa8Uaksj9UnIzaRKonw"

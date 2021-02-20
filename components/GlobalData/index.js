@@ -21,6 +21,10 @@ const useStyles = makeStyles({
 const GlobalData = ({ data, countries, date }) => {
   return (
     <>
+      <Typography variant="h4" component="h1">
+        Summaries as of <b>{new Date(date).toLocaleDateString()}</b> from{" "}
+        <b>{countries.length}</b> countries.
+      </Typography>
       <CountrySelector countries={countries} />
       <GridSection data={data} />
     </>
