@@ -33,7 +33,9 @@ export default CountryPage;
 
 export async function getStaticProps(context) {
   const { country } = context.params;
-  const { data } = await fetchCountryData(country);
+  const { data } = await fetchCountryData(
+    country === "Taiwan" ? "Taiwan*" : country
+  );
 
   return { props: { data: formatData(data) } };
 }
