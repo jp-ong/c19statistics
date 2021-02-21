@@ -14,7 +14,7 @@ const CountryPage = ({ data }) => {
         <title>{country} Statistics for COVID-19 Cases</title>
         <meta
           name="keywords"
-          content={`${country}, history, summary, average, cases, covid19, daily,covid-19, global, statistics, confirmed, deaths, recovered, population`}
+          content={`${country}, history, summary, average, cases, covid19, daily, covid-19, global, statistics, confirmed, deaths, recovered, population, timeline`}
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link
