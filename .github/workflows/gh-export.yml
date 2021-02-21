@@ -20,9 +20,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Setup env
+        run: |
+          touch .env
+          echo MONGO_URI=${{ secrets.MONGO_URI }} >> .env
       - name: Use Node.js ${{ matrix.node-version }}
-        env:
-          MONGO_URI: ${{ secrets.MONGO_URI }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
