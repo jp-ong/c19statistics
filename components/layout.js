@@ -4,6 +4,7 @@ import Navbar from "components/navbar";
 const useStyles = makeStyles({
   root: {
     marginTop: 25,
+    marginBottom: 50,
   },
 });
 

@@ -6,38 +6,28 @@ const RouterButtons = ({ homeButton, countryButton }) => {
   const router = useRouter();
   return (
     <>
-      {homeButton ? (
-        <Tooltip title="Go to home page" arrow placement="right">
-          <Button
-            onClick={() => router.push("/")}
-            onMouseOver={() => router.prefetch("/")}
-            startIcon={<HomeIcon />}
-            variant="text"
-          >
-            Home
-          </Button>
-        </Tooltip>
-      ) : (
-        <></>
-      )}
-      {countryButton ? (
-        <Tooltip
-          title="Latest statistics of every country"
-          arrow
-          placement="top"
+      <Tooltip title="Go to home page" arrow placement="right">
+        <Button
+          onClick={() => router.push("/")}
+          onMouseOver={() => router.prefetch("/")}
+          startIcon={<HomeIcon />}
+          variant="text"
+          disabled={!homeButton}
         >
-          <Button
-            onClick={() => router.push("/latest")}
-            onMouseOver={() => router.prefetch("/latest")}
-            startIcon={<PublicIcon />}
-            variant="text"
-          >
-            Countries
-          </Button>
-        </Tooltip>
-      ) : (
-        <></>
-      )}
+          Home
+        </Button>
+      </Tooltip>
+      <Tooltip title="Latest statistics of every country" arrow placement="top">
+        <Button
+          onClick={() => router.push("/latest")}
+          onMouseOver={() => router.prefetch("/latest")}
+          startIcon={<PublicIcon />}
+          variant="text"
+          disabled={!countryButton}
+        >
+          Countries
+        </Button>
+      </Tooltip>
     </>
   );
 };
