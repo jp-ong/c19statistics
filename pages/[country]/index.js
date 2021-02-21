@@ -37,7 +37,7 @@ export async function getStaticProps(context) {
     country === "Taiwan" ? "Taiwan*" : country
   );
 
-  return { props: { data: formatData(data) } };
+  return { props: { data: formatData(data) }, revalidate: 3600 };
 }
 
 export async function getStaticPaths() {

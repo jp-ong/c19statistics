@@ -32,6 +32,7 @@ export async function getStaticProps() {
         .sort(),
       date: data[0].date,
     },
+    revalidate: 3600,
   };
 }
 

@@ -34,6 +34,7 @@ export async function getStaticProps() {
       data: formatData(data),
       date,
     },
+    revalidate: 3600,
   };
 }
 
