@@ -25,7 +25,7 @@ export default class MyDocument extends Document {
         `,
             }}
           />
-          {prefix===''?<script dangerouslySetInnerHTML={{__html:`if(confirm('Live demo available at c19statistics.vercel.app')) window.location.href="https://c19statistics.vercel.app/"`}}/>:<></>}
+          {process.env.NEXT_PUBLIC_BASE_PATH?<script dangerouslySetInnerHTML={{__html:`if(confirm('Live demo can be viewed at c19statistics.vercel.app')) window.location.href="https://c19statistics.vercel.app/"`}}/>:<></>}
           <meta name="theme-color" content={theme.palette.primary.main} />
           <meta
             name="google-site-verification"
