@@ -24,7 +24,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-          MONGO_URI: ${{ secrets.MONGO_URI }}
 
       - run: npm ci
       - run: npm run build
@@ -35,3 +34,4 @@ jobs:
         with:
           branch: gh-pages
           folder: out
+          MONGO_URI: ${{ secrets.MONGO_URI }}
