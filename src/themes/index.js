@@ -1,6 +1,9 @@
 import { createMuiTheme } from "@material-ui/core";
 
 export const light = createMuiTheme({
+  overrides: {
+    MuiDataGrid: { root: { cursor: "pointer" } },
+  },
   palette: {
     type: "light",
     background: { default: "rgb(238, 238, 255)", paper: "rgb(238, 238, 255)" },
