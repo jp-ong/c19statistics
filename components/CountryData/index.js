@@ -1,5 +1,5 @@
 import { DataGrid } from "@material-ui/data-grid";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Paper, Typography } from "@material-ui/core";
 import RouterButtons from "components/routerButtons";
 
 const CountryData = ({ data, country }) => {
@@ -13,7 +13,7 @@ const CountryData = ({ data, country }) => {
         startDate={rows[rows.length - 1].date}
         endDate={rows[0].date}
       />
-      <Box width="100%" height="34em">
+      <Box component={Paper} width="100%" height="34em">
         <DataGrid
           rows={rows}
           columns={columns}

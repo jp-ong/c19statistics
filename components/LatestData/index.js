@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, Paper } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import { useRouter } from "next/router";
 import RouterButtons from "components/routerButtons";
@@ -12,7 +12,7 @@ const LatestData = ({ data, date }) => {
       <RouterButtons homeButton />
       <hr />
       <DataHeader date={date} length={rows.length} />
-      <Box width="100%" height="34em">
+      <Box component={Paper} width="100%" height="34em">
         <DataGrid
           rows={rows}
           columns={columns}
