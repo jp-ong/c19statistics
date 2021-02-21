@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
           <meta name="robots" content="index, follow" />
           <meta
             name="description"
-            content="Keep up-to-date with COVID-19 cases with our global statistics and country statistical summary."
+            content="Keep up-to-date on COVID-19 cases with our global statistics and your country's cases timeline."
           />
           <link rel="icon" href="/favicon.ico" />
           <link
