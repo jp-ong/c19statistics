@@ -35,6 +35,9 @@ const DataHeader = ({ country, startDate, endDate }) => {
         COVID19 Timeline of <b>{country}</b> from <b>{formatDate(startDate)}</b>{" "}
         to <b>{formatDate(endDate)}</b>
       </Typography>
+      <Typography variant="body2" component="span">
+        Note: You can sort the data by clicking on the column headers
+      </Typography>
     </Box>
   );
 };

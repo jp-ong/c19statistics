@@ -36,6 +36,9 @@ const DataHeader = ({ date, length }) => (
     <Typography variant="body2" component="span">
       Select a <b>country</b> to see its timeline
     </Typography>
+    <Typography variant="body2" component="span">
+      Note: You can sort the data by clicking on the column headers
+    </Typography>
   </Box>
 );
 export default LatestData;
