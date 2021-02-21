@@ -43,8 +43,8 @@ const DataHeader = ({ country, startDate, endDate }) => {
   return (
     <Box marginY="1em">
       <Typography variant="h5" component="h1">
-        History of <b>{country}</b> from <b>{formatDate(startDate)}</b> to{" "}
-        <b>{formatDate(endDate)}</b>
+        COVID19 Timeline of <b>{country}</b> from <b>{formatDate(startDate)}</b>{" "}
+        to <b>{formatDate(endDate)}</b>
       </Typography>
     </Box>
   );
