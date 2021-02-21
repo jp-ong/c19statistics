@@ -2,7 +2,7 @@ import { createMuiTheme } from "@material-ui/core";
 
 export const light = createMuiTheme({
   overrides: {
-    MuiDataGrid: { root: { cursor: "pointer" } },
+    MuiFormLabel: { root: { color: "rgba(0, 0, 0, 0.87)" } },
   },
   palette: {
     type: "light",
