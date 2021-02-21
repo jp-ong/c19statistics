@@ -21,6 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
+        with: 
+          MONGO_URI: ${{ secrets.MONGO_URI }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
@@ -34,4 +36,3 @@ jobs:
         with:
           branch: gh-pages
           folder: out
-          MONGO_URI: ${{ secrets.MONGO_URI }}
