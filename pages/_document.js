@@ -3,6 +3,8 @@ import Document, { Html, Head, Main, NextScript } from "next/document";
 import { ServerStyleSheets } from "@material-ui/core";
 import { light as theme } from "src/themes";
 
+const prefix = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default class MyDocument extends Document {
   render() {
     return (
@@ -34,7 +36,7 @@ export default class MyDocument extends Document {
             name="description"
             content="Keep up-to-date on COVID-19 cases with our global statistics and your country's cases timeline."
           />
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href={`${prefix}/favicon.ico`} />
           <link
             rel="stylesheet preconnect"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
