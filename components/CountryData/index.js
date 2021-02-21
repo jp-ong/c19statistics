@@ -1,24 +1,13 @@
 import { DataGrid } from "@material-ui/data-grid";
-import { Box, Typography, Tooltip, Button } from "@material-ui/core";
-import { Home as HomeIcon } from "@material-ui/icons";
-import { useRouter } from "next/router";
+import { Box, Typography } from "@material-ui/core";
+import RouterButtons from "components/routerButtons";
 
 const CountryData = ({ data, country }) => {
   const { rows, columns } = data;
-  const router = useRouter();
   return (
     <>
-      {" "}
-      <Tooltip title="Go to home page" arrow placement="right">
-        <Button
-          onClick={() => router.push("/")}
-          onMouseOver={() => router.prefetch("/")}
-          startIcon={<HomeIcon />}
-          variant="text"
-        >
-          Go to home page
-        </Button>
-      </Tooltip>
+      <RouterButtons homeButton countryButton />
+      <hr />
       <DataHeader
         country={country}
         startDate={rows[rows.length - 1].date}

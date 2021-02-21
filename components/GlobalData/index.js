@@ -13,6 +13,7 @@ import {
 } from "@material-ui/icons";
 import { indigo, red, green, pink, teal } from "@material-ui/core/colors";
 import CountrySelector from "./CountrySelector";
+import RouterButtons from "components/routerButtons";
 
 const useStyles = makeStyles({
   root: { width: "100%" },
@@ -21,8 +22,10 @@ const useStyles = makeStyles({
 const GlobalData = ({ data, countries, date }) => {
   return (
     <>
-      <Typography variant="h4" component="h1">
-        Summaries as of <b>{new Date(date).toLocaleDateString()}</b> from{" "}
+      <RouterButtons countryButton />
+      <hr />
+      <Typography variant="h5" component="h1">
+        Summaries as of <b>{new Date(date).toJSON().slice(0, 10)}</b> from{" "}
         <b>{countries.length}</b> countries.
       </Typography>
       <CountrySelector countries={countries} />

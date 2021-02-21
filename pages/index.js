@@ -7,10 +7,10 @@ export default function HomePage({ data, countries, date }) {
   return (
     <>
       <Head>
-        <title>Latest Statistics for COVID-19 Cases</title>
+        <title>Summary Statistics for COVID-19 Cases</title>
         <meta
           name="keywords"
-          content="covid-19, global, statistics, confirmed, deaths, recovered, population"
+          content="covid-19, global, statistics, confirmed, deaths, recovered, population, summary, total"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://c19statistics.vercel.app/" />
