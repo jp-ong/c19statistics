@@ -24,7 +24,7 @@ Source: [JHU MongoDB Atlas](https://developer.mongodb.com/article/johns-hopkins-
 
 ### **Development Technologies Used**
 
-- [Next](https://nextjs.org/) (Incremental Static Regeneration)
+- [Next](https://nextjs.org/) (Incremental Static Regeneration, every 1 hour)
 - [React](https://reactjs.org/)
 - [Material UI](https://material-ui.com/) ([Core](https://www.npmjs.com/package/@material-ui/core), [DataGrid](<(https://www.npmjs.com/package/@material-ui/data-grid)>), [Icons](https://www.npmjs.com/package/@material-ui/icons), [Lab](https://www.npmjs.com/package/@material-ui/lab))
 - [Mongoose](https://mongoosejs.com/)
