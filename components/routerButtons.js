@@ -6,7 +6,7 @@ const RouterButtons = ({ homeButton, countryButton }) => {
   const router = useRouter();
   return (
     <>
-      <Tooltip title="Go to home page" arrow placement="right">
+      <Tooltip title="Go to home page" arrow placement="top">
         <Button
           onClick={() => router.push("/")}
           onMouseOver={() => router.prefetch("/")}
