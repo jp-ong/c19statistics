@@ -24,7 +24,7 @@ const GlobalData = ({ data, countries, date }) => {
     <>
       <RouterButtons countryButton />
       <hr />
-      <Typography variant="h5" component="h1">
+      <Typography variant="h4" component="h1">
         Summaries as of <b>{new Date(date).toJSON().slice(0, 10)}</b> from{" "}
         <b>{countries.length}</b> countries.
       </Typography>

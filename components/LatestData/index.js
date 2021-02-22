@@ -29,7 +29,7 @@ const LatestData = ({ data, date }) => {
 
 const DataHeader = ({ date, length }) => (
   <Box marginY="1em" display="flex" flexDirection="column" gridGap="1em">
-    <Typography variant="h5" component="h1">
+    <Typography variant="h4" component="h1">
       Reported cases for <b>{new Date(date).toJSON().slice(0, 10)}</b> from{" "}
       <b>{length}</b> countries
     </Typography>
