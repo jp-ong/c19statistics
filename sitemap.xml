@@ -1027,7 +1027,7 @@
         <priority>0.8</priority>
 </url>
     <url>
-        <loc>https://c19statistics.vercel.app/Taiwan*</loc>
+        <loc>https://c19statistics.vercel.app/Taiwan</loc>
         <lastmod>2021-02-21</lastmod>    
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
