@@ -11,7 +11,7 @@ const RouterButtons = ({ homeButton, countryButton }) => {
           onClick={() => router.push("/")}
           onMouseOver={() => router.prefetch("/")}
           startIcon={<HomeIcon />}
-          variant="text"
+          variant="outlined"
           disabled={!homeButton}
         >
           Home
@@ -22,7 +22,7 @@ const RouterButtons = ({ homeButton, countryButton }) => {
           onClick={() => router.push("/latest")}
           onMouseOver={() => router.prefetch("/latest")}
           startIcon={<PublicIcon />}
-          variant="text"
+          variant="outlined"
           disabled={!countryButton}
         >
           Countries
