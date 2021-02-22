@@ -1,11 +1,11 @@
-import { Tooltip, Button } from "@material-ui/core";
+import { Tooltip, Button, Box } from "@material-ui/core";
 import { Public as PublicIcon, Home as HomeIcon } from "@material-ui/icons";
 import { useRouter } from "next/router";
 
 const RouterButtons = ({ homeButton, countryButton }) => {
   const router = useRouter();
   return (
-    <>
+    <Box display="flex" flexWrap="wrap" gridGap=".25em">
       <Tooltip title="Go to home page" arrow placement="top">
         <Button
           onClick={() => router.push("/")}
@@ -28,7 +28,7 @@ const RouterButtons = ({ homeButton, countryButton }) => {
           Countries
         </Button>
       </Tooltip>
-    </>
+    </Box>
   );
 };
 
