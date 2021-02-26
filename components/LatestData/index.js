@@ -1,7 +1,7 @@
 import { Box, Typography, Paper } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 import { useRouter } from "next/router";
-import RouterButtons from "components/RouterButtons";
+import RouterButtons from "components/routerButtons";
 
 const LatestData = ({ data, date }) => {
   const router = useRouter();

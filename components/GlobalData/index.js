@@ -13,7 +13,7 @@ import {
 } from "@material-ui/icons";
 import { indigo, red, green, pink, teal } from "@material-ui/core/colors";
 import CountrySelector from "./CountrySelector";
-import RouterButtons from "components/RouterButtons";
+import RouterButtons from "components/routerButtons";
 
 const useStyles = makeStyles({
   root: { width: "100%" },

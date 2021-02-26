@@ -1,5 +1,5 @@
 import { Typography, Button, Tooltip, Box } from "@material-ui/core";
-import RouterButtons from "components/RouterButtons";
+import RouterButtons from "components/routerButtons";
 import OverviewStats from "./OverviewStats";
 import DataSection from "./DataSection";
 import { useState } from "react";
