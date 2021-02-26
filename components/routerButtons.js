@@ -11,7 +11,7 @@ const RouterButtons = ({ homeButton, countryButton }) => {
           onClick={() => router.push("/")}
           onMouseOver={() => router.prefetch("/")}
           startIcon={<HomeIcon />}
-          variant="outlined"
+          variant="text"
           disabled={!homeButton}
         >
           Home

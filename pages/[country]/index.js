@@ -1,11 +1,11 @@
 import Layout from "components/layout";
 import fetchCountryData from "src/data/fetchCountryData";
-import fetchGlobalData from "src/data/fetchGlobalData";
+import fetchCountryList from "src/data/fetchCountryList";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import CountryData from "components/CountryData";
 
-const CountryPage = ({ data }) => {
+const CountryPage = ({ data, prevCountry, nextCountry }) => {
   const router = useRouter();
   const { country } = router.query;
   return (
@@ -23,7 +23,12 @@ const CountryPage = ({ data }) => {
         />
       </Head>
       <Layout>
-        <CountryData data={data} country={country} />
+        <CountryData
+          data={data}
+          country={country}
+          prevCountry={prevCountry}
+          nextCountry={nextCountry}
+        />
       </Layout>
     </>
   );
@@ -36,17 +41,26 @@ export async function getStaticProps(context) {
   const { data } = await fetchCountryData(
     country === "Taiwan" ? "Taiwan*" : country
   );
+  const { countries } = await fetchCountryList();
+  const cIndex = countries.indexOf(country);
 
-  return { props: { data: formatData(data) }, revalidate: 3600 };
+  return {
+    props: {
+      data: formatData(data),
+      prevCountry: countries[cIndex - 1] || -1,
+      nextCountry: countries[cIndex + 1] || -1,
+    },
+    revalidate: 3600,
+  };
 }
 
 export async function getStaticPaths() {
-  const { data } = await fetchGlobalData();
+  const { countries } = await fetchCountryList();
 
-  const paths = data.map(({ country }) => {
+  const paths = countries.map((country) => {
     return {
       params: {
-        country: country === "Taiwan*" ? "Taiwan" : country,
+        country,
       },
     };
   });
