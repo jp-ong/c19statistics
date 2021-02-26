@@ -34,7 +34,7 @@ const CountryPagination = ({ prevCountry, nextCountry, country }) => {
           disabled={endNext}
           variant="outlined"
           onClick={() => router.push(`/${nextCountry}`)}
-          onHover={() => router.prefetch(`/${nextCountry}`)}
+          onMouseOver={() => router.prefetch(`/${nextCountry}`)}
           color="secondary.dark"
           endIcon={<NextIcon />}
         >
