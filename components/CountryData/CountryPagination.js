@@ -23,7 +23,6 @@ const CountryPagination = ({ prevCountry, nextCountry, country }) => {
           variant="outlined"
           onClick={() => router.push(`/${prevCountry}`)}
           onMouseOver={() => router.prefetch(`/${prevCountry}`)}
-          color="secondary.dark"
           startIcon={<PrevIcon />}
         >
           {endPrev ? country : prevCountry}
@@ -35,7 +34,6 @@ const CountryPagination = ({ prevCountry, nextCountry, country }) => {
           variant="outlined"
           onClick={() => router.push(`/${nextCountry}`)}
           onMouseOver={() => router.prefetch(`/${nextCountry}`)}
-          color="secondary.dark"
           endIcon={<NextIcon />}
         >
           {endNext ? country : nextCountry}

@@ -8,6 +8,7 @@ export const light = createMuiTheme({
     type: "light",
     background: { default: "rgb(238, 238, 255)", paper: "rgb(238, 238, 255)" },
     primary: { main: "rgb(238, 238, 255)" },
+    secondary: { main: "#c51162" },
     contrastThreshold: 3,
     text: {
       primary: "rgba(0, 0, 0, 0.87)",
@@ -19,5 +20,9 @@ export const light = createMuiTheme({
 });
 
 export const dark = createMuiTheme({
-  palette: { type: "dark", primary: { main: "#424242" } },
+  palette: {
+    type: "dark",
+    primary: { main: "#424242" },
+    secondary: { main: "#c51162" },
+  },
 });

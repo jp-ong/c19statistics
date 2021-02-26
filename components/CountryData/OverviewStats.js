@@ -6,6 +6,7 @@ import {
   lightBlue,
   orange,
   deepPurple,
+  grey,
 } from "@material-ui/core/colors";
 
 const OverviewStats = ({ data }) => {
@@ -64,22 +65,22 @@ const gridData = (data) => {
     {
       label: "Active",
       value: active.toLocaleString(),
-      bgColor: lightBlue[600],
-      textColor: blueGrey[50],
+      bgColor: lightBlue[800],
+      textColor: grey[50],
       md: 4,
     },
     {
       label: "Deaths",
       value: deaths.toLocaleString(),
-      bgColor: red["A400"],
-      textColor: blueGrey[50],
+      bgColor: red["A700"],
+      textColor: grey[50],
       md: 4,
     },
     {
       label: "Recovered",
       value: recovered.toLocaleString(),
-      bgColor: teal[600],
-      textColor: blueGrey[50],
+      bgColor: teal[700],
+      textColor: grey[50],
       md: 4,
     },
     {
