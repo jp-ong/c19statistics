@@ -1,3 +1,2 @@
 User-agent: *
-
 Sitemap: https://c19statistics.vercel.app/sitemap.xml
