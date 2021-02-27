@@ -2,8 +2,8 @@ import { Box, Typography } from "@material-ui/core";
 
 const Disclaimer = () => {
   return (
-    <Box position="fixed" bottom="0" right="0" margin=".125em">
-      <Typography variant="overline" component="span">
+    <Box textAlign="left" marginTop="10em" marginX="1em">
+      <Typography variant="overline" component="p">
         <small>
           <b>Disclaimer: </b>This website is for educational purposes only and
           data shown may be inaccurate
