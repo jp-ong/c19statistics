@@ -1,5 +1,6 @@
 import { Container, makeStyles } from "@material-ui/core";
 import Navbar from "components/navbar";
+import Disclaimer from "./disclaimer";
 
 const useStyles = makeStyles({
   root: {
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
     <>
       <Navbar />
       <Container className={classes.root}>{children}</Container>
+      <Disclaimer />
     </>
   );
 };
