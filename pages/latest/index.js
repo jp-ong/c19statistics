@@ -40,8 +40,19 @@ export async function getStaticProps() {
 
 const formatData = (data) => {
   const columns = [
-    { field: "id", headerName: "Index", width: 100, type: "number" },
-    { field: "country", headerName: "Country", width: 200, type: "string" },
+    {
+      field: "id",
+      headerName: "Index",
+      width: 100,
+      type: "number",
+    },
+    {
+      field: "country",
+      headerName: "Country",
+      width: 200,
+      type: "string",
+      cellClassName: "country-row-cell",
+    },
     {
       field: "population",
       headerName: "Population",

@@ -6,3 +6,11 @@
 .MuiDataGrid-row {
   cursor: pointer;
 }
+
+.country-row-cell {
+  text-decoration: underline;
+  font-weight: bold;
+  &:hover {
+    color: #bb55ff;
+  }
+}
