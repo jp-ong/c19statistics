@@ -28,7 +28,7 @@ export async function getStaticProps() {
     props: {
       data: reduceData(data),
       countries: data
-        .map(({ country }) => (country === "Taiwan*" ? "Tawain" : country))
+        .map(({ country }) => (country === "Taiwan*" ? "Taiwan" : country))
         .sort(),
       date: data[0].date,
     },
