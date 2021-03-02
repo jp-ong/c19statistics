@@ -5,12 +5,7 @@ import {
   Typography,
   makeStyles,
 } from "@material-ui/core";
-import {
-  SentimentDissatisfiedOutlined as ConfirmedIcon,
-  SentimentVeryDissatisfiedOutlined as DeathIcon,
-  SentimentVerySatisfiedOutlined as RecoveredIcon,
-  AddOutlined as AddIcon,
-} from "@material-ui/icons";
+import { AddOutlined as AddIcon } from "@material-ui/icons";
 import { indigo, red, green, pink, teal } from "@material-ui/core/colors";
 import CountrySelector from "./CountrySelector";
 import RouterButtons from "components/routerButtons";
@@ -48,19 +43,16 @@ const GridSection = ({ data }) => {
     {
       label: "Confirmed",
       value: confirmed,
-      icon: <ConfirmedIcon />,
       bgColor: indigo[700],
     },
     {
       label: "Deaths",
       value: deaths,
-      icon: <DeathIcon />,
       bgColor: pink[700],
     },
     {
       label: "Recovered",
       value: recovered,
-      icon: <RecoveredIcon />,
       bgColor: teal[700],
     },
     {
@@ -115,7 +107,8 @@ const GridCard = ({ label, value, icon, bgColor, trimColor }) => {
             <b>{label}</b>
           </Typography>
           <Typography component="h3" variant="h4" align="center">
-            {icon} <b>{value.toLocaleString()}</b>
+            {icon || "" + " "}
+            <b>{value.toLocaleString()}</b>
           </Typography>
         </CardContent>
       </Card>
