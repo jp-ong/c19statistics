@@ -39,49 +39,6 @@ export async function getStaticProps() {
 }
 
 const formatData = (data) => {
-  const columns = [
-    {
-      field: "id",
-      headerName: "Index",
-      width: 100,
-      type: "number",
-    },
-    {
-      field: "country",
-      headerName: "Country",
-      width: 200,
-      type: "string",
-      cellClassName: "country-row-cell",
-    },
-    {
-      field: "population",
-      headerName: "Population",
-      width: 200,
-      type: "number",
-    },
-    { field: "confirmed", headerName: "Confirmed", width: 150, type: "number" },
-    { field: "deaths", headerName: "Deaths", width: 150, type: "number" },
-    { field: "recovered", headerName: "Recovered", width: 150, type: "number" },
-    {
-      field: "confirmed_daily",
-      headerName: "New Confirmed",
-      width: 170,
-      type: "number",
-    },
-    {
-      field: "deaths_daily",
-      headerName: "New Deaths",
-      width: 170,
-      type: "number",
-    },
-    {
-      field: "recovered_daily",
-      headerName: "New Recovered",
-      width: 170,
-      type: "number",
-    },
-  ];
-
   const rows = data.map(
     (
       {
@@ -110,5 +67,5 @@ const formatData = (data) => {
     }
   );
 
-  return { columns, rows };
+  return JSON.parse(JSON.stringify({ rows }));
 };

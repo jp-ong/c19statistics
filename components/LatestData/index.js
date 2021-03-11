@@ -1,12 +1,57 @@
 import { Box, Typography, Paper } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
-import { useRouter } from "next/router";
 import RouterButtons from "components/routerButtons";
+import Link from "next/link";
 
 const LatestData = ({ data, date }) => {
-  const router = useRouter();
-  const { rows, columns } = data;
-
+  const { rows } = data;
+  const columns = [
+    {
+      field: "id",
+      headerName: "Index",
+      width: 100,
+      type: "number",
+    },
+    {
+      field: "country",
+      headerName: "Country",
+      width: 200,
+      type: "string",
+      cellClassName: "country-row-cell",
+      renderCell: (params) => (
+        <b>
+          <Link href={`/${params.value}`}>{params.value}</Link>
+        </b>
+      ),
+    },
+    {
+      field: "population",
+      headerName: "Population",
+      width: 200,
+      type: "number",
+    },
+    { field: "confirmed", headerName: "Confirmed", width: 150, type: "number" },
+    { field: "deaths", headerName: "Deaths", width: 150, type: "number" },
+    { field: "recovered", headerName: "Recovered", width: 150, type: "number" },
+    {
+      field: "confirmed_daily",
+      headerName: "New Confirmed",
+      width: 170,
+      type: "number",
+    },
+    {
+      field: "deaths_daily",
+      headerName: "New Deaths",
+      width: 170,
+      type: "number",
+    },
+    {
+      field: "recovered_daily",
+      headerName: "New Recovered",
+      width: 170,
+      type: "number",
+    },
+  ];
   return (
     <>
       <RouterButtons homeButton />
@@ -16,11 +61,9 @@ const LatestData = ({ data, date }) => {
         <DataGrid
           rows={rows}
           columns={columns}
-          pageSize={10}
+          pageSize={100}
           rowsPerPageOptions={[10, 25, 50, 100]}
           density="compact"
-          onRowClick={({ row: { country } }) => router.push(`/${country}`)}
-          onRowHover={({ row: { country } }) => router.prefetch(`/${country}`)}
         />
       </Box>
     </>
