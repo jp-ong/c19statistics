@@ -1,12 +1,11 @@
 import { Box, Button, Tooltip } from "@material-ui/core";
-import { useRouter } from "next/router";
 import {
   NavigateNextRounded as NextIcon,
   NavigateBeforeRounded as PrevIcon,
 } from "@material-ui/icons";
+import Link from "next/link";
 
 const CountryPagination = ({ prevCountry, nextCountry, country }) => {
-  const router = useRouter();
   const endPrev = prevCountry === -1;
   const endNext = nextCountry === -1;
   return (
@@ -18,26 +17,22 @@ const CountryPagination = ({ prevCountry, nextCountry, country }) => {
       flexWrap="wrap"
     >
       <Tooltip title={`See ${endPrev ? country : prevCountry} Overview`}>
-        <Button
-          disabled={endPrev}
-          variant="outlined"
-          onClick={() => router.push(`/${prevCountry}`)}
-          onMouseOver={() => router.prefetch(`/${prevCountry}`)}
-          startIcon={<PrevIcon />}
-        >
-          {endPrev ? country : prevCountry}
-        </Button>
+        <Link href={`/${endPrev ? country : prevCountry}`} passHref>
+          <Button
+            disabled={endPrev}
+            variant="outlined"
+            startIcon={<PrevIcon />}
+          >
+            {endPrev ? country : prevCountry}
+          </Button>
+        </Link>
       </Tooltip>
       <Tooltip title={`See ${endNext ? country : nextCountry} Overview`}>
-        <Button
-          disabled={endNext}
-          variant="outlined"
-          onClick={() => router.push(`/${nextCountry}`)}
-          onMouseOver={() => router.prefetch(`/${nextCountry}`)}
-          endIcon={<NextIcon />}
-        >
-          {endNext ? country : nextCountry}
-        </Button>
+        <Link href={`/${endNext ? country : nextCountry}`} passHref>
+          <Button disabled={endNext} variant="outlined" endIcon={<NextIcon />}>
+            {endNext ? country : nextCountry}
+          </Button>
+        </Link>
       </Tooltip>
     </Box>
   );
