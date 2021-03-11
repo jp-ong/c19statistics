@@ -17,7 +17,6 @@ const LatestData = ({ data, date }) => {
       headerName: "Country",
       width: 200,
       type: "string",
-      cellClassName: "country-row-cell",
       renderCell: (params) => (
         <b>
           <Link href={`/${params.value}`}>{params.value}</Link>
