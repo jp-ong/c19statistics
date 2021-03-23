@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /China
 
 Sitemap: https://c19statistics.vercel.app/sitemap.xml
